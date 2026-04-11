@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/private/
+Disallow: /_next/
+Sitemap: https://sybellasystems.co.rw/sitemap.xml
