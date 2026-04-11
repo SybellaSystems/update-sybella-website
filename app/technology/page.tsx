@@ -114,6 +114,59 @@ export default function TechPage() {
               "",
               "export default SyCore.init(config);",
             ]} />
+            
+            {/* Development Environment Showcase */}
+            <div style={{ marginTop: 32, position: "relative" }}>
+              <div style={{ 
+                background: "var(--surface)", 
+                border: "1px solid var(--border)", 
+                borderRadius: 4, 
+                overflow: "hidden",
+                position: "relative"
+              }}>
+                <div style={{ 
+                  padding: "16px 20px", 
+                  background: "var(--surface-2)", 
+                  borderBottom: "1px solid var(--border)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 12
+                }}>
+                  <div style={{ display: "flex", gap: 6 }}>
+                    {["#f87171","#fbbf24","#34d399"].map(c => 
+                      <div key={c} style={{ width: 10, height: 10, borderRadius: "50%", background: c, opacity: 0.8 }} />
+                    )}
+                  </div>
+                  <span style={{ fontSize: 12, color: "var(--text-secondary)", fontFamily: "monospace" }}>
+                    development-environment.tsx
+                  </span>
+                </div>
+                <div style={{ position: "relative", height: 300, overflow: "hidden" }}>
+                  <img 
+                    src="/desktop-window-codes.jpg" 
+                    alt="Sybella Systems Development Environment" 
+                    style={{ 
+                      width: "100%", 
+                      height: "100%", 
+                      objectFit: "cover",
+                      position: "absolute",
+                      top: 0,
+                      left: 0
+                    }} 
+                  />
+                </div>
+              </div>
+              <p style={{ 
+                fontSize: 12, 
+                color: "var(--text-tertiary)", 
+                textAlign: "center", 
+                marginTop: 12,
+                fontStyle: "italic"
+              }}>
+                Our development environment — precision engineering in action
+              </p>
+            </div>
+
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, marginTop: 2 }}>
               {[["99.9%", "Uptime SLA"], ["< 200ms", "p95 Response"], ["SOC 2", "Compliance Ready"], ["256-bit", "Encryption"]].map(([v, l]) => (
                 <div key={l} style={{ padding: "20px 24px", background: "var(--surface)", border: "1px solid var(--border)", textAlign: "center" }}>

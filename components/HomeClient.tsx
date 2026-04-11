@@ -205,6 +205,64 @@ export default function HomeClient() {
         </div>
       </section>
 
+      {/* ── RECENT WORK ── */}
+      <section style={{ padding: "120px 32px", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/file.svg')", backgroundRepeat: "repeat", backgroundSize: "120px 120px", opacity: 0.08, pointerEvents: "none" }} />
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <div className="fade-up" style={{ marginBottom: 64 }}>
+            <div className="tag" style={{ marginBottom: 20 }}>Recent Work</div>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
+              Building Africa's Digital Future
+            </h2>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 2, maxWidth: 1000, margin: "0 auto" }}>
+            <div className="fade-up" style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, overflow: "hidden", position: "relative" }}>
+              <div style={{ padding: "40px", position: "relative", zIndex: 2 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
+                  <div style={{ width: 48, height: 48, borderRadius: 8, background: "linear-gradient(135deg, var(--blue), var(--blue-bright))", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, fontWeight: 700, color: "white" }}>GA</div>
+                  <div>
+                    <h3 style={{ fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 700, marginBottom: 4 }}>Graben Academy</h3>
+                    <p style={{ fontSize: 14, color: "var(--text-secondary)" }}>Educational Technology Platform</p>
+                  </div>
+                </div>
+                <p style={{ fontSize: 16, color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: 32 }}>
+                  A comprehensive learning management system designed for African educational institutions. Built with modern web technologies, featuring course management, student progress tracking, and integrated assessment tools.
+                </p>
+                <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                  <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>Next.js</span>
+                  <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>React</span>
+                  <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>TypeScript</span>
+                  <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>Tailwind CSS</span>
+                </div>
+              </div>
+              <div style={{ position: "relative", height: 400, overflow: "hidden" }}>
+                <img 
+                  src="/graben-academy-website-by-sybella.png" 
+                  alt="Graben Academy Website - Built by Sybella Systems" 
+                  style={{ 
+                    width: "100%", 
+                    height: "100%", 
+                    objectFit: "cover",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    zIndex: 1
+                  }} 
+                />
+                <div style={{ 
+                  position: "absolute", 
+                  inset: 0, 
+                  background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 40%)",
+                  zIndex: 2,
+                  pointerEvents: "none"
+                }} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── OGERA SPOTLIGHT ── */}
       <section ref={ogeraRef} style={{ padding: "120px 32px", background: "var(--charcoal)", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
         {/* Background globe pattern */}
