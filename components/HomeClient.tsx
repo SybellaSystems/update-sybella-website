@@ -272,7 +272,7 @@ export default function HomeClient() {
           <Image 
             src="/developer-reviewing-code.png"
             alt="Sybella Systems engineer reviewing code"
-            width={580}
+            width={680}
             height={720}
             style={{ 
               objectFit: "contain",
