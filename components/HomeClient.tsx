@@ -208,8 +208,7 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* ── RECENT WORK ── */}
-     {/* ── RECENT WORK ── */}
+    {/* ── RECENT WORK ── 3D Cube Carousel */}
 <section 
   ref={recentWorkRef}
   style={{ 
@@ -221,199 +220,112 @@ export default function HomeClient() {
   }}
 >
   <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-    <div className="fade-up" style={{ marginBottom: 64 }}>
+    <div className="fade-up" style={{ marginBottom: 64, textAlign: "center" }}>
       <div className="tag" style={{ marginBottom: 20 }}>Recent Work</div>
       <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
         Building Africa's Digital Future
       </h2>
     </div>
 
-    {/* Sliding Carousel */}
-    <div 
-      style={{ 
-        display: "flex", 
-        gap: "24px", 
-        overflowX: "auto", 
-        paddingBottom: "40px",
-        scrollSnapType: "x mandatory",
-        WebkitOverflowScrolling: "touch",
-        scrollbarWidth: "none", /* Firefox */
-      }}
-      className="recent-work-slider"
-    >
-      {/* Project 1: Graben Academy */}
-      <div className="fade-up" style={{ 
-        minWidth: "min(100%, 460px)", 
-        scrollSnapAlign: "start",
-        flexShrink: 0 
-      }}>
-        <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, overflow: "hidden", height: "100%", display: "flex", flexDirection: "column" }}>
-          <div style={{ padding: "40px", flex: 1 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
-              <div style={{ width: 48, height: 48, borderRadius: 8, background: "linear-gradient(135deg, var(--blue), var(--blue-bright))", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, fontWeight: 700, color: "white" }}>GA</div>
-              <div>
-                <h3 style={{ fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 700, marginBottom: 4 }}>Graben Academy</h3>
-                <p style={{ fontSize: 14, color: "var(--text-secondary)" }}>Educational Technology Platform</p>
+    {/* 3D Cube Container */}
+    <div style={{ 
+      perspective: "1200px", 
+      width: "100%", 
+      maxWidth: "620px", 
+      height: "520px", 
+      margin: "0 auto",
+      position: "relative"
+    }}>
+      <div 
+        id="cube" 
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "relative",
+          transformStyle: "preserve-3d",
+          transition: "transform 1.2s cubic-bezier(0.23, 1, 0.32, 1)",
+        }}
+      >
+        {/* Define your projects here - each is one face of the cube */}
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="cube-face"
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              border: "1px solid var(--border)",
+              borderRadius: "12px",
+              overflow: "hidden",
+              background: "var(--surface)",
+              boxShadow: "0 30px 80px rgba(0,0,0,0.4)",
+              transform: `rotateY(${index * 90}deg) translateZ(310px)`,
+            }}
+          >
+            <div style={{ padding: "40px", height: "calc(100% - 380px)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 28 }}>
+                <div style={{ 
+                  width: 56, 
+                  height: 56, 
+                  borderRadius: 12, 
+                  background: project.accent || "var(--blue-bright)", 
+                  display: "flex", 
+                  alignItems: "center", 
+                  justifyContent: "center", 
+                  fontSize: 28, 
+                  color: "#fff" 
+                }}>
+                  {project.icon}
+                </div>
+                <div>
+                  <h3 style={{ fontFamily: "var(--font-display)", fontSize: 26, fontWeight: 700, marginBottom: 4 }}>
+                    {project.title}
+                  </h3>
+                  <p style={{ color: "var(--text-secondary)", fontSize: 15 }}>{project.subtitle}</p>
+                </div>
               </div>
-            </div>
-            <p style={{ fontSize: 16, color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: 32 }}>
-              A comprehensive learning management system designed for African educational institutions with course management, progress tracking, and assessments.
-            </p>
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>Next.js</span>
-              <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>React</span>
-              <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>TypeScript</span>
-            </div>
-          </div>
 
-          {/* Image area */}
-          <div style={{ position: "relative", height: 380, background: "#1a1a24" }}>
-            <Image 
-              src="/graben-academy-website-by-sybella.png" 
-              alt="Graben Academy Platform"
-              fill
-              style={{ objectFit: "cover" }}
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-            />
+              <p style={{ fontSize: 16, color: "var(--text-secondary)", lineHeight: 1.75 }}>
+                {project.desc}
+              </p>
+            </div>
+
+            {/* Image / Visual Area */}
+            <div style={{ position: "relative", height: "380px", background: "#111" }}>
+              {project.image ? (
+                <Image 
+                  src={project.image} 
+                  alt={project.title}
+                  fill 
+                  style={{ objectFit: "cover" }}
+                  onError={(e) => {(e.target as HTMLImageElement).style.display = 'none';}}
+                />
+              ) : (
+                <div style={{ 
+                  position: "absolute", 
+                  inset: 0, 
+                  display: "flex", 
+                  alignItems: "center", 
+                  justifyContent: "center", 
+                  fontSize: 120, 
+                  opacity: 0.15 
+                }}>
+                  {project.icon}
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        ))}
       </div>
-
-      {/* Project 2: Ogera */}
-      <div className="fade-up" style={{ 
-        minWidth: "min(100%, 460px)", 
-        scrollSnapAlign: "start",
-        flexShrink: 0 
-      }}>
-        <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, overflow: "hidden", height: "100%", display: "flex", flexDirection: "column" }}>
-          <div style={{ padding: "40px", flex: 1 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
-              <div style={{ width: 48, height: 48, borderRadius: 8, background: "var(--emerald-dim)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, color: "#2dba85" }}>◎</div>
-              <div>
-                <h3 style={{ fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 700, marginBottom: 4 }}>Ogera</h3>
-                <p style={{ fontSize: 14, color: "var(--text-secondary)" }}>Student Employment Platform</p>
-              </div>
-            </div>
-            <p style={{ fontSize: 16, color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: 32 }}>
-              Africa's premier platform connecting university students with meaningful employment opportunities through AI-powered skills matching.
-            </p>
-            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>Next.js</span>
-              <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>AI Matching</span>
-              <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>Mobile First</span>
-            </div>
-          </div>
-
-          <div style={{ position: "relative", height: 380, background: "#1a1a24" }}>
-            {/* You can add a real Ogera screenshot here later */}
-            <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "var(--text-secondary)", fontSize: 60 }}>◎</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Project 3: Add more here (example) */}
-      <div className="fade-up" style={{ 
-        minWidth: "min(100%, 460px)", 
-        scrollSnapAlign: "start",
-        flexShrink: 0 
-      }}>
-        <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, overflow: "hidden", height: "100%", display: "flex", flexDirection: "column" }}>
-          <div style={{ padding: "40px", flex: 1 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
-              <div style={{ width: 48, height: 48, borderRadius: 8, background: "#c9a84c", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, color: "#16161f", fontWeight: 700 }}>Sy</div>
-              <div>
-                <h3 style={{ fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 700, marginBottom: 4 }}>SyCore ERP</h3>
-                <p style={{ fontSize: 14, color: "var(--text-secondary)" }}>Enterprise Resource Planning</p>
-              </div>
-            </div>
-            <p style={{ fontSize: 16, color: "var(--text-secondary)", lineHeight: 1.7 }}>
-              Precision-built ERP system handling inventory, HR, finance and compliance for African businesses operating in complex environments.
-            </p>
-          </div>
-          <div style={{ position: "relative", height: 380, background: "#1a1a24" }}>
-            <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "#c9a84c", fontSize: 80 }}>⬡</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Add more cards the same way... */}
     </div>
 
-    <div style={{ textAlign: "center", marginTop: 32, color: "var(--text-secondary)", fontSize: 13 }}>
-      ← Scroll horizontally to see more projects →
+    {/* Progress / Status */}
+    <div style={{ textAlign: "center", marginTop: 40, color: "var(--text-secondary)", fontSize: 13 }}>
+      Auto-rotating every 5 seconds • Hover to pause
     </div>
   </div>
 </section>
-
-      {/* ── OGERA SPOTLIGHT ── */}
-      <section ref={ogeraRef} style={{ padding: "120px 32px", background: "var(--charcoal)", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
-        {/* Background globe pattern */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "140px 140px", opacity: 0.12, pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "30%", right: 0, width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(45,186,133,0.07) 0%, transparent 70%)" }} />
-        <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }} className="hero-grid">
-          {/* Visual side */}
-          <div className="fade-up" style={{ order: 2 }}>
-            <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 4, overflow: "hidden" }}>
-              {/* Mock platform UI */}
-              <div style={{ background: "var(--surface-2)", padding: "12px 20px", display: "flex", alignItems: "center", gap: 12, borderBottom: "1px solid var(--border)" }}>
-                <div style={{ display: "flex", gap: 6 }}>
-                  {["#f87171","#fbbf24","#34d399"].map(c => <div key={c} style={{ width: 10, height: 10, borderRadius: "50%", background: c, opacity: 0.8 }} />)}
-                </div>
-                <div style={{ flex: 1, background: "var(--surface)", borderRadius: 2, padding: "5px 12px", fontSize: 11, color: "var(--text-tertiary)", fontFamily: "monospace" }}>app.ogera.africa</div>
-              </div>
-              <div style={{ padding: 28 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
-                  <div style={{ width: 36, height: 36, borderRadius: 2, background: "var(--emerald-dim)", border: "1px solid rgba(45,186,133,0.3)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>◎</div>
-                  <div>
-                    <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 16, letterSpacing: "-0.02em" }}>Ogera</div>
-                    <div style={{ fontSize: 11, color: "var(--text-tertiary)" }}>Student Employment Platform</div>
-                  </div>
-                </div>
-                {[
-                  { label: "Active Opportunities", value: "2,400+", color: "#2dba85" },
-                  { label: "Student Profiles", value: "8,000+", color: "#c9a84c" },
-                  { label: "Partner Employers", value: "340+", color: "#b87333" },
-                ].map(m => (
-                  <div key={m.label} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 0", borderBottom: "1px solid var(--border)" }}>
-                    <span style={{ fontSize: 13, color: "var(--text-secondary)" }}>{m.label}</span>
-                    <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 16, color: m.color }}>{m.value}</span>
-                  </div>
-                ))}
-                <div style={{ marginTop: 24, padding: 16, background: "var(--emerald-dim)", border: "1px solid rgba(45,186,133,0.2)", borderRadius: 3 }}>
-                  <div style={{ fontSize: 11, color: "var(--emerald)", fontWeight: 600, fontFamily: "var(--font-display)", letterSpacing: "0.08em", textTransform: "uppercase" }}>Beta Launch</div>
-                  <div style={{ fontFamily: "var(--font-display)", fontSize: 18, fontWeight: 800, color: "var(--text-primary)", marginTop: 4 }}>14 June 2026</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Text side */}
-          <div className="fade-up" style={{ order: 1 }}>
-            <div className="tag tag-emerald" style={{ marginBottom: 28 }}>Featured Product</div>
-            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 24 }}>
-              Africa's Student<br />
-              <span style={{ color: "var(--emerald)" }}>Employment OS</span>
-            </h2>
-            <p style={{ fontSize: 16, color: "var(--text-secondary)", lineHeight: 1.85, marginBottom: 40 }}>
-              Ogera connects Africa's sharpest young minds with meaningful employment. Not just a job board — a complete platform for career development, skills matching, and real-world opportunity.
-            </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 44 }}>
-              {["Students earn, grow, and build verified professional profiles", "Employers access Africa's most talented university graduates", "AI-powered matching based on skills, availability, and ambition"].map(f => (
-                <div key={f} style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
-                  <div style={{ width: 18, height: 18, borderRadius: "50%", background: "var(--emerald-dim)", border: "1px solid rgba(45,186,133,0.4)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>
-                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M1 4L3 6L7 2" stroke="#2dba85" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  </div>
-                  <span style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.7 }}>{f}</span>
-                </div>
-              ))}
-            </div>
-            <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-              <Link href="/ogera" className="btn-primary" style={{ background: "var(--emerald)", color: "var(--black)" }}>Explore Ogera</Link>
-              <Link href="/ogera#join" className="btn-ghost">Join the Beta</Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── TRUST INDICATORS ── */}
       <section ref={trustRef} style={{ padding: "100px 32px", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
