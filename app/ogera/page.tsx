@@ -53,7 +53,7 @@ export default function OgeraPage() {
       </section>
 
       {/* How It Works — Students */}
-      <section id="how" ref={s1} style={{ padding: "120px 32px", background: "var(--charcoal)" }}>
+      <section id="how" ref={s1} style={{ padding: "80px 32px", background: "var(--charcoal)" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div className="fade-up" style={{ marginBottom: 72 }}>
             <div className="tag tag-emerald" style={{ marginBottom: 20 }}>For Students</div>

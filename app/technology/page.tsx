@@ -45,7 +45,7 @@ export default function TechPage() {
   return (
     <div style={{ paddingTop: 72 }}>
       {/* Hero */}
-      <section style={{ padding: "100px 32px 80px", borderBottom: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
+      <section style={{ padding: "80px 32px 60px", borderBottom: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
         {/* Background file pattern */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/file.svg')", backgroundRepeat: "repeat", backgroundSize: "130px 130px", opacity: 0.12, pointerEvents: "none" }} />
         <div className="grid-pattern" style={{ position: "absolute", inset: 0, opacity: 0.6 }} />
@@ -66,7 +66,7 @@ export default function TechPage() {
       </section>
 
       {/* Architecture visual */}
-      <section ref={s1} style={{ padding: "100px 32px", background: "var(--charcoal)", position: "relative", overflow: "hidden" }}>
+      <section ref={s1} style={{ padding: "80px 32px", background: "var(--charcoal)", position: "relative", overflow: "hidden" }}>
         {/* Background globe pattern */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "150px 150px", opacity: 0.12, pointerEvents: "none" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 72, alignItems: "start" }} className="hero-grid">
@@ -179,7 +179,7 @@ export default function TechPage() {
       </section>
 
       {/* Services grid */}
-      <section id="stack" ref={s2} style={{ padding: "100px 32px" }}>
+      <section id="stack" ref={s2} style={{ padding: "80px 32px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div className="fade-up" style={{ marginBottom: 64 }}>
             <div className="tag" style={{ marginBottom: 20 }}>Service Verticals</div>

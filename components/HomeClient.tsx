@@ -223,7 +223,7 @@ export default function HomeClient() {
 <section 
   ref={aboutRef} 
   style={{ 
-    padding: "120px 32px", 
+    padding: "80px 32px", 
     borderTop: "1px solid var(--border)", 
     background: "var(--charcoal)", 
     position: "relative", 
@@ -315,7 +315,7 @@ export default function HomeClient() {
 </section>
 
       {/* ── SERVICES ── */}
-      <section ref={servicesRef} style={{ padding: "120px 32px", position: "relative", overflow: "hidden" }}>
+      <section ref={servicesRef} style={{ padding: "80px 32px", position: "relative", overflow: "hidden" }}>
         {/* Background file pattern */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/file.svg')", backgroundRepeat: "repeat", backgroundSize: "100px 100px", opacity: 0.12, pointerEvents: "none" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
@@ -349,7 +349,7 @@ export default function HomeClient() {
       <section 
         ref={recentWorkRef}
         style={{ 
-          padding: "120px 32px", 
+          padding: "80px 32px", 
           borderTop: "1px solid var(--border)", 
           background: "var(--charcoal)", 
           position: "relative", 
@@ -468,7 +468,7 @@ export default function HomeClient() {
       </section>
 
       {/* ── TRUST INDICATORS ── */}
-      <section ref={trustRef} style={{ padding: "100px 32px", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
+      <section ref={trustRef} style={{ padding: "80px 32px", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
         {/* Background window pattern */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/window.svg')", backgroundRepeat: "repeat", backgroundSize: "160px 160px", opacity: 0.02, pointerEvents: "none" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
