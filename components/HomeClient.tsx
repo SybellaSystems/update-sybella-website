@@ -501,6 +501,18 @@ export default function HomeClient() {
           .stats-grid { grid-template-columns: 1fr 1fr !important; }
           .cta-grid { grid-template-columns: 1fr !important; }
         }
+          @media (max-width: 1024px) {
+    .vision-grid { 
+      grid-template-columns: 1fr !important; 
+      gap: 60px !important; 
+    }
+  }
+  @media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+    .values-grid { grid-template-columns: 1fr !important; }
+    .stats-grid { grid-template-columns: 1fr 1fr !important; }
+    .cta-grid { grid-template-columns: 1fr !important; }
+  }
       `}</style>
     </div>
   );
