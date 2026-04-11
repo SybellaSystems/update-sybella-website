@@ -224,16 +224,55 @@ export default function HomeClient() {
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/window.svg')", backgroundRepeat: "repeat", backgroundSize: "150px 150px", opacity: 0.02, pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "80%", height: 1, background: "linear-gradient(90deg, transparent, var(--gold), transparent)", opacity: 0.3 }} />
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <div className="fade-up" style={{ maxWidth: 720, marginBottom: 80 }}>
-            <div className="tag" style={{ marginBottom: 24 }}>Vision</div>
-            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 24 }}>
-              We don't follow trends.<br />
-              <span style={{ color: "var(--text-secondary)", fontStyle: "italic", fontWeight: 400 }}>We engineer the systems that create them.</span>
-            </h2>
-            <p style={{ fontSize: 17, color: "var(--text-secondary)", lineHeight: 1.85 }}>
-              Africa has 1.4 billion people and the world's fastest-growing youth population. We're building the digital infrastructure for that future — custom, precise, and uncompromising in quality.
-            </p>
-          </div>
+          
+          
+          <div style={{ position: "relative", maxWidth: 1280, margin: "0 auto" }}>
+  {/* Text Content */}
+  <div className="fade-up" style={{ maxWidth: 720, marginBottom: 80 }}>
+    <div className="tag" style={{ marginBottom: 24 }}>Vision</div>
+    <h2 style={{ 
+      fontFamily: "var(--font-display)", 
+      fontSize: "clamp(32px, 4vw, 56px)", 
+      fontWeight: 800, 
+      letterSpacing: "-0.03em", 
+      lineHeight: 1.1, 
+      marginBottom: 24 
+    }}>
+      We don't follow trends.<br />
+      <span style={{ color: "var(--text-secondary)", fontStyle: "italic", fontWeight: 400 }}>We engineer the systems that create them.</span>
+    </h2>
+    <p style={{ fontSize: 17, color: "var(--text-secondary)", lineHeight: 1.85 }}>
+      Africa has 1.4 billion people and the world's fastest-growing youth population. We're building the digital infrastructure for that future — custom, precise, and uncompromising in quality.
+    </p>
+  </div>
+
+  {/* Professional Developer Image - Standing & Reviewing Code */}
+  <div 
+    className="fade-up" 
+    style={{ 
+      position: "absolute", 
+      right: "-60px", 
+      top: "80px", 
+      width: "420px", 
+      zIndex: 2,
+      filter: "drop-shadow(0 40px 80px rgba(0, 0, 0, 0.35))",
+      pointerEvents: "none"
+    }}
+  >
+    <Image 
+      src="/developer-reviewing-code.png"     // ← Put your image here
+      alt="Young African software engineer standing and thoughtfully reviewing code on laptop"
+      width={420}
+      height={580}
+      style={{ 
+        objectFit: "contain",
+        filter: "contrast(1.08) saturate(1.05)"
+      }}
+      priority
+    />
+  </div>
+</div>
+
 
           {/* Values grid */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2 }} className="values-grid">
