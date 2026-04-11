@@ -209,70 +209,141 @@ export default function HomeClient() {
       </section>
 
       {/* ── RECENT WORK ── */}
-      {/* ── RECENT WORK ── */}
+     {/* ── RECENT WORK ── */}
 <section 
   ref={recentWorkRef}
   style={{ 
     padding: "120px 32px", 
     borderTop: "1px solid var(--border)", 
+    background: "var(--charcoal)", 
     position: "relative", 
     overflow: "hidden" 
   }}
 >
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/file.svg')", backgroundRepeat: "repeat", backgroundSize: "120px 120px", opacity: 0.08, pointerEvents: "none" }} />
-        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <div className="fade-up" style={{ marginBottom: 64 }}>
-            <div className="tag" style={{ marginBottom: 20 }}>Recent Work</div>
-            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
-              Building Africa's Digital Future
-            </h2>
-          </div>
+  <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+    <div className="fade-up" style={{ marginBottom: 64 }}>
+      <div className="tag" style={{ marginBottom: 20 }}>Recent Work</div>
+      <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
+        Building Africa's Digital Future
+      </h2>
+    </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 2, maxWidth: 1000, margin: "0 auto" }}>
-            <div className="fade-up" style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, overflow: "hidden", position: "relative" }}>
-              <div style={{ padding: "40px", position: "relative", zIndex: 2 }}>
-                <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
-                  <div style={{ width: 48, height: 48, borderRadius: 8, background: "linear-gradient(135deg, var(--blue), var(--blue-bright))", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, fontWeight: 700, color: "white" }}>GA</div>
-                  <div>
-                    <h3 style={{ fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 700, marginBottom: 4 }}>Graben Academy</h3>
-                    <p style={{ fontSize: 14, color: "var(--text-secondary)" }}>Educational Technology Platform</p>
-                  </div>
-                </div>
-                <p style={{ fontSize: 16, color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: 32 }}>
-                  A comprehensive learning management system designed for African educational institutions. Built with modern web technologies, featuring course management, student progress tracking, and integrated assessment tools.
-                </p>
-                <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                  <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>Next.js</span>
-                  <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>React</span>
-                  <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>TypeScript</span>
-                  <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>Tailwind CSS</span>
-                </div>
-              </div>
-              <div style={{ position: "relative", height: 400, overflow: "hidden" }}>
-                <Image 
-                  src="/graben-academy-website-by-sybella.png" 
-                  alt="Graben Academy Website - Built by Sybella Systems" 
-                  fill
-                  style={{ 
-                    objectFit: "cover",
-                    zIndex: 1
-                  }}
-                  priority
-                  quality={85}
-                  sizes="(max-width: 1280px) 100vw, 1280px"
-                />
-                <div style={{ 
-                  position: "absolute", 
-                  inset: 0, 
-                  background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 40%)",
-                  zIndex: 2,
-                  pointerEvents: "none"
-                }} />
+    {/* Sliding Carousel */}
+    <div 
+      style={{ 
+        display: "flex", 
+        gap: "24px", 
+        overflowX: "auto", 
+        paddingBottom: "40px",
+        scrollSnapType: "x mandatory",
+        WebkitOverflowScrolling: "touch",
+        scrollbarWidth: "none", /* Firefox */
+      }}
+      className="recent-work-slider"
+    >
+      {/* Project 1: Graben Academy */}
+      <div className="fade-up" style={{ 
+        minWidth: "min(100%, 460px)", 
+        scrollSnapAlign: "start",
+        flexShrink: 0 
+      }}>
+        <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, overflow: "hidden", height: "100%", display: "flex", flexDirection: "column" }}>
+          <div style={{ padding: "40px", flex: 1 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
+              <div style={{ width: 48, height: 48, borderRadius: 8, background: "linear-gradient(135deg, var(--blue), var(--blue-bright))", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, fontWeight: 700, color: "white" }}>GA</div>
+              <div>
+                <h3 style={{ fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 700, marginBottom: 4 }}>Graben Academy</h3>
+                <p style={{ fontSize: 14, color: "var(--text-secondary)" }}>Educational Technology Platform</p>
               </div>
             </div>
+            <p style={{ fontSize: 16, color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: 32 }}>
+              A comprehensive learning management system designed for African educational institutions with course management, progress tracking, and assessments.
+            </p>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+              <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>Next.js</span>
+              <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>React</span>
+              <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>TypeScript</span>
+            </div>
+          </div>
+
+          {/* Image area */}
+          <div style={{ position: "relative", height: 380, background: "#1a1a24" }}>
+            <Image 
+              src="/graben-academy-website-by-sybella.png" 
+              alt="Graben Academy Platform"
+              fill
+              style={{ objectFit: "cover" }}
+              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            />
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Project 2: Ogera */}
+      <div className="fade-up" style={{ 
+        minWidth: "min(100%, 460px)", 
+        scrollSnapAlign: "start",
+        flexShrink: 0 
+      }}>
+        <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, overflow: "hidden", height: "100%", display: "flex", flexDirection: "column" }}>
+          <div style={{ padding: "40px", flex: 1 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
+              <div style={{ width: 48, height: 48, borderRadius: 8, background: "var(--emerald-dim)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, color: "#2dba85" }}>◎</div>
+              <div>
+                <h3 style={{ fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 700, marginBottom: 4 }}>Ogera</h3>
+                <p style={{ fontSize: 14, color: "var(--text-secondary)" }}>Student Employment Platform</p>
+              </div>
+            </div>
+            <p style={{ fontSize: 16, color: "var(--text-secondary)", lineHeight: 1.7, marginBottom: 32 }}>
+              Africa's premier platform connecting university students with meaningful employment opportunities through AI-powered skills matching.
+            </p>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+              <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>Next.js</span>
+              <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>AI Matching</span>
+              <span style={{ padding: "6px 12px", background: "var(--surface-2)", border: "1px solid var(--border)", borderRadius: 20, fontSize: 12, fontWeight: 500 }}>Mobile First</span>
+            </div>
+          </div>
+
+          <div style={{ position: "relative", height: 380, background: "#1a1a24" }}>
+            {/* You can add a real Ogera screenshot here later */}
+            <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "var(--text-secondary)", fontSize: 60 }}>◎</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Project 3: Add more here (example) */}
+      <div className="fade-up" style={{ 
+        minWidth: "min(100%, 460px)", 
+        scrollSnapAlign: "start",
+        flexShrink: 0 
+      }}>
+        <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, overflow: "hidden", height: "100%", display: "flex", flexDirection: "column" }}>
+          <div style={{ padding: "40px", flex: 1 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
+              <div style={{ width: 48, height: 48, borderRadius: 8, background: "#c9a84c", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 20, color: "#16161f", fontWeight: 700 }}>Sy</div>
+              <div>
+                <h3 style={{ fontFamily: "var(--font-display)", fontSize: 24, fontWeight: 700, marginBottom: 4 }}>SyCore ERP</h3>
+                <p style={{ fontSize: 14, color: "var(--text-secondary)" }}>Enterprise Resource Planning</p>
+              </div>
+            </div>
+            <p style={{ fontSize: 16, color: "var(--text-secondary)", lineHeight: 1.7 }}>
+              Precision-built ERP system handling inventory, HR, finance and compliance for African businesses operating in complex environments.
+            </p>
+          </div>
+          <div style={{ position: "relative", height: 380, background: "#1a1a24" }}>
+            <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: "#c9a84c", fontSize: 80 }}>⬡</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Add more cards the same way... */}
+    </div>
+
+    <div style={{ textAlign: "center", marginTop: 32, color: "var(--text-secondary)", fontSize: 13 }}>
+      ← Scroll horizontally to see more projects →
+    </div>
+  </div>
+</section>
 
       {/* ── OGERA SPOTLIGHT ── */}
       <section ref={ogeraRef} style={{ padding: "120px 32px", background: "var(--charcoal)", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
