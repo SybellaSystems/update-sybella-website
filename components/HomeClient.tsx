@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 function useIntersection(ref: React.RefObject<HTMLElement | null>) {
   useEffect(() => {
@@ -237,18 +238,17 @@ export default function HomeClient() {
                 </div>
               </div>
               <div style={{ position: "relative", height: 400, overflow: "hidden" }}>
-                <img 
+                <Image 
                   src="/graben-academy-website-by-sybella.png" 
                   alt="Graben Academy Website - Built by Sybella Systems" 
+                  fill
                   style={{ 
-                    width: "100%", 
-                    height: "100%", 
                     objectFit: "cover",
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
                     zIndex: 1
-                  }} 
+                  }}
+                  priority
+                  quality={85}
+                  sizes="(max-width: 1280px) 100vw, 1280px"
                 />
                 <div style={{ 
                   position: "absolute", 

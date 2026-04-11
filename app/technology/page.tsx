@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 function useIntersection(ref: React.RefObject<HTMLElement | null>) {
   useEffect(() => {
@@ -142,17 +143,15 @@ export default function TechPage() {
                   </span>
                 </div>
                 <div style={{ position: "relative", height: 300, overflow: "hidden" }}>
-                  <img 
+                  <Image 
                     src="/desktop-window-codes.jpg" 
                     alt="Sybella Systems Development Environment" 
+                    fill
                     style={{ 
-                      width: "100%", 
-                      height: "100%", 
-                      objectFit: "cover",
-                      position: "absolute",
-                      top: 0,
-                      left: 0
-                    }} 
+                      objectFit: "cover"
+                    }}
+                    quality={85}
+                    sizes="(max-width: 1280px) 50vw, 640px"
                   />
                 </div>
               </div>
