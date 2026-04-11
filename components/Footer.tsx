@@ -28,7 +28,7 @@ export default function Footer() {
             <div style={{ display: "flex", gap: 12 }}>
               {["LI", "TW", "GH"].map(s => (
                 <div key={s} style={{ width: 36, height: 36, border: "1px solid var(--border-bright)", borderRadius: 2, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, fontFamily: "var(--font-display)", fontWeight: 700, color: "var(--text-secondary)", cursor: "pointer", transition: "all 0.2s" }}
-                  onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.borderColor = "var(--gold)"; (e.currentTarget as HTMLDivElement).style.color = "var(--gold-bright)"; }}
+                  onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.borderColor = "var(--blue)"; (e.currentTarget as HTMLDivElement).style.color = "var(--blue-bright)"; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.borderColor = "var(--border-bright)"; (e.currentTarget as HTMLDivElement).style.color = "var(--text-secondary)"; }}
                 >{s}</div>
               ))}
@@ -36,7 +36,7 @@ export default function Footer() {
           </div>
           {cols.map(col => (
             <div key={col.title}>
-              <p style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--gold-bright)", marginBottom: 20 }}>{col.title}</p>
+              <p style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue-bright)", marginBottom: 20 }}>{col.title}</p>
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 {col.links.map(([label, href]) => (
                   <Link key={label} href={href} style={{ fontSize: 14, color: "var(--text-secondary)", textDecoration: "none", transition: "color 0.2s" }}

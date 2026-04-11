@@ -45,6 +45,8 @@ export default function TechPage() {
     <div style={{ paddingTop: 72 }}>
       {/* Hero */}
       <section style={{ padding: "100px 32px 80px", borderBottom: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
+        {/* Background file pattern */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/file.svg')", backgroundRepeat: "repeat", backgroundSize: "130px 130px", opacity: 0.02, pointerEvents: "none" }} />
         <div className="grid-pattern" style={{ position: "absolute", inset: 0, opacity: 0.35 }} />
         <div style={{ position: "absolute", top: 0, right: 0, width: 700, height: 500, background: "radial-gradient(ellipse at right top, rgba(201,168,76,0.06) 0%, transparent 70%)" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto", position: "relative" }}>
@@ -63,11 +65,13 @@ export default function TechPage() {
       </section>
 
       {/* Architecture visual */}
-      <section ref={s1} style={{ padding: "100px 32px", background: "var(--charcoal)" }}>
+      <section ref={s1} style={{ padding: "100px 32px", background: "var(--charcoal)", position: "relative", overflow: "hidden" }}>
+        {/* Background globe pattern */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "150px 150px", opacity: 0.02, pointerEvents: "none" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 72, alignItems: "start" }} className="hero-grid">
           <div>
             <div className="fade-up tag" style={{ marginBottom: 24 }}>Architecture</div>
-            <h2 className="fade-up" style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 3vw, 44px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 28 }}>Systems that scale.<br /><span style={{ color: "var(--gold-bright)" }}>Not just software.</span></h2>
+            <h2 className="fade-up" style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 3vw, 44px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 28 }}>Systems that scale.<br /><span style={{ color: "var(--blue-bright)" }}>Not just software.</span></h2>
             <div className="fade-up" style={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {[
                 { title: "Scalability", desc: "Every system we build is architected to handle 10x the initial load — microservices, caching layers, and horizontal scaling baked in from day one.", color: "#c9a84c" },
@@ -113,7 +117,7 @@ export default function TechPage() {
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, marginTop: 2 }}>
               {[["99.9%", "Uptime SLA"], ["< 200ms", "p95 Response"], ["SOC 2", "Compliance Ready"], ["256-bit", "Encryption"]].map(([v, l]) => (
                 <div key={l} style={{ padding: "20px 24px", background: "var(--surface)", border: "1px solid var(--border)", textAlign: "center" }}>
-                  <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 20, color: "var(--gold-bright)" }}>{v}</div>
+                  <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 20, color: "var(--blue-bright)" }}>{v}</div>
                   <div style={{ fontSize: 11, color: "var(--text-tertiary)", marginTop: 4, fontFamily: "var(--font-display)", fontWeight: 600, letterSpacing: "0.08em" }}>{l}</div>
                 </div>
               ))}
@@ -132,13 +136,13 @@ export default function TechPage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2 }} className="three-grid">
             {services.map((s, i) => (
               <div key={s.code} className="fade-up card" style={{ padding: "36px" }}>
-                <div style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 700, color: "var(--gold)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 12 }}>{s.code}</div>
+                <div style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 700, color: "var(--blue)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 12 }}>{s.code}</div>
                 <h3 style={{ fontFamily: "var(--font-display)", fontSize: 20, fontWeight: 700, letterSpacing: "-0.02em", marginBottom: 14 }}>{s.name}</h3>
                 <p style={{ fontSize: 13, color: "var(--text-secondary)", lineHeight: 1.85, marginBottom: 24 }}>{s.desc}</p>
                 <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                   {s.features.map(f => (
                     <div key={f} style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                      <div style={{ width: 4, height: 4, borderRadius: "50%", background: "var(--gold)", flexShrink: 0 }} />
+                      <div style={{ width: 4, height: 4, borderRadius: "50%", background: "var(--blue)", flexShrink: 0 }} />
                       <span style={{ fontSize: 12, color: "var(--text-secondary)", fontWeight: 500 }}>{f}</span>
                     </div>
                   ))}

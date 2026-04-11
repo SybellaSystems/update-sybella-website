@@ -59,8 +59,8 @@ function HeroOrb() {
 function Stat({ n, label, suffix = "" }: { n: string; label: string; suffix?: string }) {
   return (
     <div style={{ padding: "28px 24px", borderLeft: "1px solid var(--border)" }}>
-      <div style={{ fontFamily: "var(--font-display)", fontSize: 40, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--gold-bright)", lineHeight: 1 }}>
-        {n}<span style={{ fontSize: 24, color: "var(--gold)", opacity: 0.8 }}>{suffix}</span>
+                <div style={{ fontFamily: "var(--font-display)", fontSize: 40, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--blue-bright)", lineHeight: 1 }}>
+        {n}<span style={{ fontSize: 24, color: "var(--blue)", opacity: 0.8 }}>{suffix}</span>
       </div>
       <div style={{ fontSize: 13, color: "var(--text-secondary)", marginTop: 8, fontWeight: 500 }}>{label}</div>
     </div>
@@ -98,6 +98,8 @@ export default function HomeClient() {
       <section ref={heroRef} style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", paddingTop: 72 }}>
         {/* Background grid */}
         <div className="grid-pattern" style={{ position: "absolute", inset: 0, opacity: 0.5 }} />
+        {/* Background globe pattern */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "120px 120px", opacity: 0.03, pointerEvents: "none" }} />
         {/* Background gradient blob */}
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: 800, height: 800, borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: 0, right: 0, width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle, rgba(45,186,133,0.04) 0%, transparent 70%)", pointerEvents: "none" }} />
@@ -106,7 +108,7 @@ export default function HomeClient() {
           {/* Left */}
           <div>
             <div className="tag" style={{ marginBottom: 28 }}>
-              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--gold)", display: "inline-block" }} />
+              <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--blue)", display: "inline-block" }} />
               Kigali, Rwanda · Est. 2025
             </div>
             <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(44px, 5.5vw, 76px)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.0, marginBottom: 28 }}>
@@ -139,6 +141,8 @@ export default function HomeClient() {
 
       {/* ── VISION ── */}
       <section ref={aboutRef} style={{ padding: "120px 32px", borderTop: "1px solid var(--border)", background: "var(--charcoal)", position: "relative", overflow: "hidden" }}>
+        {/* Background window pattern */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/window.svg')", backgroundRepeat: "repeat", backgroundSize: "150px 150px", opacity: 0.02, pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "80%", height: 1, background: "linear-gradient(90deg, transparent, var(--gold), transparent)", opacity: 0.3 }} />
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div className="fade-up" style={{ maxWidth: 720, marginBottom: 80 }}>
@@ -160,7 +164,7 @@ export default function HomeClient() {
               { n: "03", title: "Global Standard", text: "We hold our work to the same standards as the world's top software companies — because Africa's builders deserve nothing less." },
             ].map(v => (
               <div key={v.n} className="fade-up" style={{ padding: "48px 40px", background: "var(--surface)", borderRight: "1px solid var(--border)" }}>
-                <div style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 700, color: "var(--gold)", letterSpacing: "0.2em", marginBottom: 24 }}>{v.n}</div>
+                <div style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 700, color: "var(--blue)", letterSpacing: "0.2em", marginBottom: 24 }}>{v.n}</div>
                 <h3 style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 700, marginBottom: 16, letterSpacing: "-0.02em" }}>{v.title}</h3>
                 <p style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.85 }}>{v.text}</p>
               </div>
@@ -170,7 +174,9 @@ export default function HomeClient() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section ref={servicesRef} style={{ padding: "120px 32px" }}>
+      <section ref={servicesRef} style={{ padding: "120px 32px", position: "relative", overflow: "hidden" }}>
+        {/* Background file pattern */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/file.svg')", backgroundRepeat: "repeat", backgroundSize: "100px 100px", opacity: 0.02, pointerEvents: "none" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 64, flexWrap: "wrap", gap: 24 }}>
             <div className="fade-up">
@@ -184,10 +190,10 @@ export default function HomeClient() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 2 }}>
             {[
-              { icon: "⬡", title: "SyCore™ ERP", desc: "Enterprise resource planning systems built for African operational complexity — inventory, HR, finance, compliance in one precision-built platform.", accent: "#c9a84c" },
+              { icon: "⬡", title: "SyCore™ ERP", desc: "Enterprise resource planning systems built for African operational complexity — inventory, HR, finance, compliance in one precision-built platform.", accent: "#3b82f6" },
               { icon: "◻", title: "SyWeb™", desc: "High-performance web platforms engineered for conversion, speed, and scale. From landing pages to complex portals.", accent: "#2dba85" },
               { icon: "◈", title: "SyMobile™", desc: "iOS and Android applications that work across Africa's diverse network conditions and device ecosystems.", accent: "#b87333" },
-              { icon: "▲", title: "SyCloud™", desc: "Cloud architecture, DevOps pipelines, and infrastructure management. Built for uptime and optimized for cost at scale.", accent: "#c9a84c" },
+              { icon: "▲", title: "SyCloud™", desc: "Cloud architecture, DevOps pipelines, and infrastructure management. Built for uptime and optimized for cost at scale.", accent: "#3b82f6" },
               { icon: "◎", title: "SyCommerce™", desc: "E-commerce solutions with African payment integrations — MTN, Airtel, M-Pesa, local gateways, and international rails.", accent: "#2dba85" },
               { icon: "⬡", title: "SyIntel™ AI", desc: "AI and data intelligence layers that transform raw business data into strategic insight — built on proven ML foundations.", accent: "#c2185b" },
             ].map(s => (
@@ -201,6 +207,8 @@ export default function HomeClient() {
 
       {/* ── OGERA SPOTLIGHT ── */}
       <section ref={ogeraRef} style={{ padding: "120px 32px", background: "var(--charcoal)", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
+        {/* Background globe pattern */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "140px 140px", opacity: 0.02, pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "30%", right: 0, width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(45,186,133,0.07) 0%, transparent 70%)" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }} className="hero-grid">
           {/* Visual side */}
@@ -268,7 +276,9 @@ export default function HomeClient() {
       </section>
 
       {/* ── TRUST INDICATORS ── */}
-      <section ref={trustRef} style={{ padding: "100px 32px", borderTop: "1px solid var(--border)" }}>
+      <section ref={trustRef} style={{ padding: "100px 32px", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
+        {/* Background window pattern */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/window.svg')", backgroundRepeat: "repeat", backgroundSize: "160px 160px", opacity: 0.02, pointerEvents: "none" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div className="fade-up" style={{ textAlign: "center", marginBottom: 64 }}>
             <div className="tag" style={{ marginBottom: 20 }}>Credibility</div>
@@ -282,7 +292,7 @@ export default function HomeClient() {
               { n: "∞", label: "Scalability Target" },
             ].map(s => (
               <div key={s.label} className="fade-up" style={{ padding: "40px 32px", background: "var(--surface)", border: "1px solid var(--border)", textAlign: "center" }}>
-                <div style={{ fontFamily: "var(--font-display)", fontSize: 36, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--gold-bright)", marginBottom: 8 }}>{s.n}</div>
+                <div style={{ fontFamily: "var(--font-display)", fontSize: 36, fontWeight: 800, letterSpacing: "-0.04em", color: "var(--blue-bright)", marginBottom: 8 }}>{s.n}</div>
                 <div style={{ fontSize: 13, color: "var(--text-secondary)", fontWeight: 500 }}>{s.label}</div>
               </div>
             ))}

@@ -30,6 +30,8 @@ export default function OgeraPage() {
     <div style={{ paddingTop: 72 }}>
       {/* Hero */}
       <section style={{ minHeight: "88vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", borderBottom: "1px solid var(--border)" }}>
+        {/* Background globe pattern */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "120px 120px", opacity: 0.02, pointerEvents: "none" }} />
         <div className="grid-pattern" style={{ position: "absolute", inset: 0, opacity: 0.4 }} />
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 600, background: "radial-gradient(ellipse 80% 60% at 60% 30%, rgba(45,186,133,0.08) 0%, transparent 70%)" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "80px 32px", position: "relative" }}>
@@ -84,7 +86,7 @@ export default function OgeraPage() {
           <div className="fade-up">
             <div className="tag" style={{ marginBottom: 24 }}>For Employers</div>
             <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 3.5vw, 48px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 24 }}>
-              Africa's talent pool,<br /><span style={{ color: "var(--gold-bright)" }}>curated for you.</span>
+              Africa's talent pool,<br /><span style={{ color: "var(--blue-bright)" }}>curated for you.</span>
             </h2>
             <p style={{ fontSize: 15, color: "var(--text-secondary)", lineHeight: 1.85, marginBottom: 36 }}>Stop sifting through unqualified applications. Ogera surfaces pre-verified, motivated university students who are ready to contribute from day one.</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
@@ -95,7 +97,7 @@ export default function OgeraPage() {
                 ["Compliance Ready", "Contracts, NDAs, and payment processing handled through the platform."],
               ].map(([title, desc]) => (
                 <div key={title} style={{ display: "flex", gap: 16 }}>
-                  <div style={{ width: 4, height: "100%", minHeight: 40, background: "var(--gold)", borderRadius: 2, flexShrink: 0 }} />
+                  <div style={{ width: 4, height: "100%", minHeight: 40, background: "var(--blue)", borderRadius: 2, flexShrink: 0 }} />
                   <div>
                     <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 15, marginBottom: 4 }}>{title}</div>
                     <div style={{ fontSize: 13, color: "var(--text-secondary)", lineHeight: 1.7 }}>{desc}</div>
@@ -106,14 +108,14 @@ export default function OgeraPage() {
           </div>
           <div className="fade-up">
             <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 4, padding: 32 }}>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: 11, color: "var(--gold)", letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 700, marginBottom: 20 }}>Platform Preview</div>
+              <div style={{ fontFamily: "var(--font-display)", fontSize: 11, color: "var(--blue)", letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 700, marginBottom: 20 }}>Platform Preview</div>
               {[
                 { name: "Amara J.", role: "Business Admin · Year 3", match: "98%", skills: ["Excel", "Data Analysis", "French"] },
                 { name: "Kwame A.", role: "Computer Science · Year 4", match: "96%", skills: ["React", "Python", "APIs"] },
                 { name: "Chisom E.", role: "Marketing · Year 2", match: "94%", skills: ["Content", "SEO", "Design"] },
               ].map((p, i) => (
                 <div key={p.name} style={{ display: "flex", alignItems: "center", gap: 16, padding: "16px 0", borderBottom: i < 2 ? "1px solid var(--border)" : "none" }}>
-                  <div style={{ width: 40, height: 40, borderRadius: "50%", background: ["var(--gold-dim)", "var(--emerald-dim)", "rgba(184,115,51,0.15)"][i], display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 14, color: ["var(--gold-bright)", "var(--emerald)", "var(--copper)"][i] }}>{p.name[0]}{p.name.split(" ")[1][0]}</div>
+                  <div style={{ width: 40, height: 40, borderRadius: "50%", background: ["var(--blue-dim)", "var(--emerald-dim)", "rgba(184,115,51,0.15)"][i], display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 14, color: ["var(--blue-bright)", "var(--emerald)", "var(--copper)"][i] }}>{p.name[0]}{p.name.split(" ")[1][0]}</div>
                   <div style={{ flex: 1 }}>
                     <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 14 }}>{p.name}</div>
                     <div style={{ fontSize: 11, color: "var(--text-tertiary)", marginBottom: 6 }}>{p.role}</div>
@@ -124,8 +126,8 @@ export default function OgeraPage() {
                   <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 16, color: "var(--emerald)" }}>{p.match}</div>
                 </div>
               ))}
-              <div style={{ marginTop: 20, padding: "14px 20px", background: "var(--gold-dim)", border: "1px solid rgba(201,168,76,0.2)", borderRadius: 3, textAlign: "center" }}>
-                <span style={{ fontFamily: "var(--font-display)", fontSize: 13, fontWeight: 700, color: "var(--gold-bright)" }}>+ 8,000 more profiles on launch</span>
+              <div style={{ marginTop: 20, padding: "14px 20px", background: "var(--blue-dim)", border: "1px solid rgba(59,130,246,0.2)", borderRadius: 3, textAlign: "center" }}>
+                <span style={{ fontFamily: "var(--font-display)", fontSize: 13, fontWeight: 700, color: "var(--blue-bright)" }}>+ 8,000 more profiles on launch</span>
               </div>
             </div>
           </div>

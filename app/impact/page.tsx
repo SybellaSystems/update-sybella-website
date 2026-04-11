@@ -31,12 +31,14 @@ export default function ImpactPage() {
     <div style={{ paddingTop: 72 }}>
       {/* Hero */}
       <section style={{ padding: "100px 32px 80px", borderBottom: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
+        {/* Background globe pattern */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "140px 140px", opacity: 0.02, pointerEvents: "none" }} />
         <div className="grid-pattern" style={{ position: "absolute", inset: 0, opacity: 0.4 }} />
         <div style={{ position: "absolute", bottom: 0, left: 0, width: 600, height: 500, background: "radial-gradient(ellipse at left bottom, rgba(45,186,133,0.06) 0%, transparent 70%)" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto", position: "relative" }}>
           <div className="tag tag-emerald" style={{ marginBottom: 28 }}>Impact & Story</div>
           <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(44px, 6vw, 84px)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 0.95, marginBottom: 32, maxWidth: 760 }}>
-            Africa Has<br />the Talent.<br /><span style={{ color: "var(--emerald)" }}>We Build</span><br /><span style={{ color: "var(--gold-bright)" }}>the Systems.</span>
+            Africa Has<br />the Talent.<br /><span style={{ color: "var(--emerald)" }}>We Build</span><br /><span style={{ color: "var(--blue-bright)" }}>the Systems.</span>
           </h1>
           <p style={{ fontSize: 18, color: "var(--text-secondary)", maxWidth: 520, lineHeight: 1.8 }}>
             Sybella Systems was born from a simple belief: Africa's builders deserve world-class software infrastructure, built by people who understand the continent.
@@ -45,12 +47,14 @@ export default function ImpactPage() {
       </section>
 
       {/* Story */}
-      <section ref={s1} style={{ padding: "100px 32px", background: "var(--charcoal)" }}>
+      <section ref={s1} style={{ padding: "100px 32px", background: "var(--charcoal)", position: "relative", overflow: "hidden" }}>
+        {/* Background window pattern */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/window.svg')", backgroundRepeat: "repeat", backgroundSize: "160px 160px", opacity: 0.02, pointerEvents: "none" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start" }} className="hero-grid">
             <div>
               <div className="fade-up tag" style={{ marginBottom: 24 }}>Our Story</div>
-              <h2 className="fade-up" style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 3vw, 44px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 28 }}>Founded in Kigali.<br /><span style={{ color: "var(--gold-bright)" }}>Built for a continent.</span></h2>
+              <h2 className="fade-up" style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 3vw, 44px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 28 }}>Founded in Kigali.<br /><span style={{ color: "var(--blue-bright)" }}>Built for a continent.</span></h2>
               <p className="fade-up" style={{ fontSize: 15, color: "var(--text-secondary)", lineHeight: 1.9, marginBottom: 24 }}>
                 Sybella Systems was incorporated in Rwanda in 2025 with a dual-founder structure designed for long-term governance and bold vision. From day one, we committed to a simple standard: every product we ship must be globally competitive.
               </p>
@@ -59,15 +63,15 @@ export default function ImpactPage() {
               </p>
               <div className="fade-up" style={{ display: "flex", gap: 32 }}>
                 <div>
-                  <div style={{ fontFamily: "var(--font-display)", fontSize: 32, fontWeight: 800, color: "var(--gold-bright)" }}>2025</div>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: 32, fontWeight: 800, color: "var(--blue-bright)" }}>2025</div>
                   <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em" }}>Founded</div>
                 </div>
                 <div>
-                  <div style={{ fontFamily: "var(--font-display)", fontSize: 32, fontWeight: 800, color: "var(--gold-bright)" }}>Kigali</div>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: 32, fontWeight: 800, color: "var(--blue-bright)" }}>Kigali</div>
                   <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em" }}>Headquarters</div>
                 </div>
                 <div>
-                  <div style={{ fontFamily: "var(--font-display)", fontSize: 32, fontWeight: 800, color: "var(--gold-bright)" }}>Africa</div>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: 32, fontWeight: 800, color: "var(--blue-bright)" }}>Africa</div>
                   <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em" }}>Market</div>
                 </div>
               </div>
@@ -84,11 +88,11 @@ export default function ImpactPage() {
                 ].map((t, i) => (
                   <div key={t.year} className="fade-up" style={{ display: "flex", gap: 24, paddingBottom: i < 4 ? 32 : 0 }}>
                     <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                      <div style={{ width: 12, height: 12, borderRadius: "50%", background: t.active ? "var(--gold)" : "var(--border-bright)", border: t.active ? "none" : "1px solid var(--border-bright)", flexShrink: 0, marginTop: 4 }} />
+                      <div style={{ width: 12, height: 12, borderRadius: "50%", background: t.active ? "var(--blue)" : "var(--border-bright)", border: t.active ? "none" : "1px solid var(--border-bright)", flexShrink: 0, marginTop: 4 }} />
                       {i < 4 && <div style={{ width: 1, flex: 1, background: "var(--border)", marginTop: 8 }} />}
                     </div>
                     <div style={{ paddingBottom: i < 4 ? 0 : 0 }}>
-                      <div style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 700, color: t.active ? "var(--gold)" : "var(--text-tertiary)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 6 }}>{t.year}</div>
+                      <div style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 700, color: t.active ? "var(--blue)" : "var(--text-tertiary)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 6 }}>{t.year}</div>
                       <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 16, marginBottom: 8 }}>{t.title}</div>
                       <div style={{ fontSize: 13, color: "var(--text-secondary)", lineHeight: 1.75 }}>{t.desc}</div>
                     </div>
@@ -115,7 +119,7 @@ export default function ImpactPage() {
               { title: "Long-Term Thinking", text: "We measure success in decades. The companies we build with today should still be running on Sybella infrastructure in 2040 — and it should still feel modern.", icon: "▲" },
             ].map(v => (
               <div key={v.title} className="fade-up card" style={{ padding: "44px 40px" }}>
-                <div style={{ fontSize: 28, marginBottom: 24, color: "var(--gold)" }}>{v.icon}</div>
+                <div style={{ fontSize: 28, marginBottom: 24, color: "var(--blue)" }}>{v.icon}</div>
                 <h3 style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 700, letterSpacing: "-0.02em", marginBottom: 14 }}>{v.title}</h3>
                 <p style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.85 }}>{v.text}</p>
               </div>
@@ -142,7 +146,7 @@ export default function ImpactPage() {
                 { icon: "⬡", label: "Founded", value: "2025 · Private Limited Company" },
               ].map(c => (
                 <div key={c.label} style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
-                  <div style={{ width: 36, height: 36, background: "var(--gold-dim)", border: "1px solid rgba(201,168,76,0.25)", borderRadius: 2, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, color: "var(--gold)", flexShrink: 0 }}>{c.icon}</div>
+                  <div style={{ width: 36, height: 36, background: "var(--blue-dim)", border: "1px solid rgba(59,130,246,0.25)", borderRadius: 2, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, color: "var(--blue)", flexShrink: 0 }}>{c.icon}</div>
                   <div>
                     <div style={{ fontSize: 11, color: "var(--text-tertiary)", fontFamily: "var(--font-display)", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 4 }}>{c.label}</div>
                     <div style={{ fontSize: 14, color: "var(--text-secondary)" }}>{c.value}</div>
@@ -153,9 +157,9 @@ export default function ImpactPage() {
           </div>
           <div className="fade-up">
             {sent ? (
-              <div style={{ padding: 60, background: "var(--gold-dim)", border: "1px solid rgba(201,168,76,0.25)", borderRadius: 4, textAlign: "center" }}>
+              <div style={{ padding: 60, background: "var(--blue-dim)", border: "1px solid rgba(59,130,246,0.25)", borderRadius: 4, textAlign: "center" }}>
                 <div style={{ fontSize: 40, marginBottom: 16 }}>◎</div>
-                <div style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 700, color: "var(--gold-bright)", marginBottom: 8 }}>Message received.</div>
+                <div style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 700, color: "var(--blue-bright)", marginBottom: 8 }}>Message received.</div>
                 <div style={{ fontSize: 14, color: "var(--text-secondary)" }}>We'll respond within 24–48 hours.</div>
               </div>
             ) : (
@@ -163,7 +167,7 @@ export default function ImpactPage() {
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
                   {[{ name: "name", placeholder: "Your name" }, { name: "company", placeholder: "Company / Organization" }].map(f => (
                     <input key={f.name} name={f.name} required placeholder={f.placeholder} value={form[f.name as keyof typeof form]} onChange={handle} style={inputStyle}
-                      onFocus={e => e.target.style.borderColor = "var(--gold)"}
+                      onFocus={e => e.target.style.borderColor = "var(--blue)"}
                       onBlur={e => e.target.style.borderColor = "var(--border)"} />
                   ))}
                 </div>

@@ -8,9 +8,9 @@
   --surface-2: #1e1e2a;
   --border: rgba(255,255,255,0.07);
   --border-bright: rgba(255,255,255,0.14);
-  --gold: #c9a84c;
-  --gold-bright: #e8c56d;
-  --gold-dim: rgba(201,168,76,0.15);
+  --blue: #3b82f6;
+  --blue-bright: #60a5fa;
+  --blue-dim: rgba(59,130,246,0.15);
   --emerald: #2dba85;
   --emerald-dim: rgba(45,186,133,0.12);
   --copper: #b87333;
@@ -52,7 +52,7 @@ body::after {
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--black); }
-::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
@@ -63,10 +63,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Selection */
-::selection { background: var(--gold-dim); color: var(--gold-bright); }
+::selection { background: var(--blue-dim); color: var(--blue-bright); }
 
 /* Focus */
-*:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 4px; }
+*:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; border-radius: 4px; }
 
 /* Links */
 a { color: inherit; text-decoration: none; }
@@ -75,14 +75,14 @@ a { color: inherit; text-decoration: none; }
 .font-display { font-family: var(--font-display); }
 .font-body { font-family: var(--font-body); }
 
-.text-gold { color: var(--gold-bright); }
+.text-gold { color: var(--blue-bright); }
 .text-emerald { color: var(--emerald); }
 .text-secondary { color: var(--text-secondary); }
 .text-tertiary { color: var(--text-tertiary); }
 
 .bg-surface { background: var(--surface); }
 .bg-surface-2 { background: var(--surface-2); }
-.bg-gold-dim { background: var(--gold-dim); }
+.bg-gold-dim { background: var(--blue-dim); }
 .bg-emerald-dim { background: var(--emerald-dim); }
 
 .border-dim { border: 1px solid var(--border); }
@@ -90,7 +90,7 @@ a { color: inherit; text-decoration: none; }
 
 /* Animated gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--gold-bright) 0%, var(--copper) 40%, var(--gold-bright) 80%);
+  background: linear-gradient(135deg, var(--blue-bright) 0%, var(--blue) 40%, var(--blue-bright) 80%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -125,7 +125,7 @@ a { color: inherit; text-decoration: none; }
 /* Horizontal rule */
 .hr-gold {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  background: linear-gradient(90deg, transparent, var(--blue), transparent);
   border: none;
   opacity: 0.4;
 }
@@ -144,7 +144,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 8px;
   padding: 14px 28px;
-  background: var(--gold);
+  background: var(--blue);
   color: var(--black);
   font-family: var(--font-display);
   font-weight: 700;
@@ -159,7 +159,7 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
 }
 .btn-primary:hover {
-  background: var(--gold-bright);
+  background: var(--blue-bright);
   transform: translateY(-1px);
   box-shadow: 0 12px 40px rgba(201,168,76,0.35);
 }
@@ -183,9 +183,9 @@ a { color: inherit; text-decoration: none; }
   cursor: pointer;
 }
 .btn-ghost:hover {
-  border-color: var(--gold);
-  color: var(--gold-bright);
-  background: var(--gold-dim);
+  border-color: var(--blue);
+  color: var(--blue-bright);
+  background: var(--blue-dim);
 }
 
 /* Card */
@@ -206,15 +206,15 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 6px;
   padding: 4px 12px;
-  background: var(--gold-dim);
-  color: var(--gold-bright);
+  background: var(--blue-dim);
+  color: var(--blue-bright);
   font-family: var(--font-display);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   border-radius: 2px;
-  border: 1px solid rgba(201,168,76,0.25);
+  border: 1px solid rgba(59,130,246,0.25);
 }
 .tag-emerald {
   background: var(--emerald-dim);
