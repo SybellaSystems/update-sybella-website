@@ -219,6 +219,7 @@ export default function HomeClient() {
       </section>
 
      {/* ── VISION ── */}
+{/* ── VISION ── */}
 <section 
   ref={aboutRef} 
   style={{ 
@@ -233,17 +234,16 @@ export default function HomeClient() {
   <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/window.svg')", backgroundRepeat: "repeat", backgroundSize: "150px 150px", opacity: 0.02, pointerEvents: "none" }} />
   <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "80%", height: 1, background: "linear-gradient(90deg, transparent, var(--gold), transparent)", opacity: 0.3 }} />
 
-  <div style={{ maxWidth: 1280, margin: "0 auto", position: "relative" }}>
+  <div style={{ maxWidth: 1280, margin: "0 auto" }}>
     
-    {/* Grid: Text + Image side by side */}
     <div style={{ 
       display: "grid", 
-      gridTemplateColumns: "1fr 460px", 
+      gridTemplateColumns: "1fr 1fr", 
       gap: 80, 
       alignItems: "center" 
     }} className="vision-grid">
-      
-      {/* Left: Text */}
+
+      {/* Left - Text */}
       <div className="fade-up">
         <div className="tag" style={{ marginBottom: 24 }}>Vision</div>
         <h2 style={{ 
@@ -262,28 +262,43 @@ export default function HomeClient() {
         </p>
       </div>
 
-      {/* Right: Your Developer Image */}
+      {/* Right - Enlarged Image with Bottom Fade */}
       <div className="fade-up" style={{ 
+        position: "relative", 
         display: "flex", 
-        justifyContent: "center", 
-        alignItems: "center"
+        justifyContent: "center" 
       }}>
-        <Image 
-          src="/developer-reviewing-code.png"
-          alt="Young African software engineer reviewing code"
-          width={460}
-          height={620}
-          style={{ 
-            objectFit: "contain",
-            filter: "drop-shadow(0 40px 80px rgba(0, 0, 0, 0.45))",
-            maxHeight: "620px"
-          }}
-          priority
-        />
+        <div style={{ position: "relative", width: "100%", maxWidth: "580px" }}>
+          <Image 
+            src="/developer-reviewing-code.png"
+            alt="Sybella Systems engineer reviewing code"
+            width={580}
+            height={720}
+            style={{ 
+              objectFit: "contain",
+              width: "100%",
+              height: "auto",
+              filter: "drop-shadow(0 40px 90px rgba(0,0,0,0.55))"
+            }}
+            priority
+          />
+
+          {/* Bottom Fade to Hide Cut-off Legs */}
+          <div style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: "180px",
+            background: "linear-gradient(to top, var(--charcoal) 20%, transparent 100%)",
+            pointerEvents: "none"
+          }} />
+        </div>
       </div>
+
     </div>
 
-    {/* Values grid - stays below */}
+    {/* Values grid */}
     <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2, marginTop: 100 }} className="values-grid">
       {[
         { n: "01", title: "Precision Engineering", text: "Every line of code is intentional. We build systems that handle edge cases, scale under load, and last decades." },
