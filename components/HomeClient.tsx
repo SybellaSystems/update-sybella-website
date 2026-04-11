@@ -218,78 +218,87 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* ── VISION ── */}
-      <section ref={aboutRef} style={{ padding: "120px 32px", borderTop: "1px solid var(--border)", background: "var(--charcoal)", position: "relative", overflow: "hidden" }}>
-        {/* Background window pattern */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/window.svg')", backgroundRepeat: "repeat", backgroundSize: "150px 150px", opacity: 0.02, pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "80%", height: 1, background: "linear-gradient(90deg, transparent, var(--gold), transparent)", opacity: 0.3 }} />
-        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          
-          
-          <div style={{ position: "relative", maxWidth: 1280, margin: "0 auto" }}>
-  {/* Text Content */}
-  <div className="fade-up" style={{ maxWidth: 720, marginBottom: 80 }}>
-    <div className="tag" style={{ marginBottom: 24 }}>Vision</div>
-    <h2 style={{ 
-      fontFamily: "var(--font-display)", 
-      fontSize: "clamp(32px, 4vw, 56px)", 
-      fontWeight: 800, 
-      letterSpacing: "-0.03em", 
-      lineHeight: 1.1, 
-      marginBottom: 24 
-    }}>
-      We don't follow trends.<br />
-      <span style={{ color: "var(--text-secondary)", fontStyle: "italic", fontWeight: 400 }}>We engineer the systems that create them.</span>
-    </h2>
-    <p style={{ fontSize: 17, color: "var(--text-secondary)", lineHeight: 1.85 }}>
-      Africa has 1.4 billion people and the world's fastest-growing youth population. We're building the digital infrastructure for that future — custom, precise, and uncompromising in quality.
-    </p>
-  </div>
+     {/* ── VISION ── */}
+<section 
+  ref={aboutRef} 
+  style={{ 
+    padding: "120px 32px", 
+    borderTop: "1px solid var(--border)", 
+    background: "var(--charcoal)", 
+    position: "relative", 
+    overflow: "hidden" 
+  }}
+>
+  {/* Background patterns */}
+  <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/window.svg')", backgroundRepeat: "repeat", backgroundSize: "150px 150px", opacity: 0.02, pointerEvents: "none" }} />
+  <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "80%", height: 1, background: "linear-gradient(90deg, transparent, var(--gold), transparent)", opacity: 0.3 }} />
 
-  {/* Professional Developer Image - Standing & Reviewing Code */}
-  <div 
-    className="fade-up" 
-    style={{ 
-      position: "absolute", 
-      right: "-60px", 
-      top: "80px", 
-      width: "420px", 
-      zIndex: 2,
-      filter: "drop-shadow(0 40px 80px rgba(0, 0, 0, 0.35))",
-      pointerEvents: "none"
-    }}
-  >
-    <Image 
-      src="/developer-reviewing-code.png"     // ← Put your image here
-      alt="Young African software engineer standing and thoughtfully reviewing code on laptop"
-      width={420}
-      height={580}
-      style={{ 
-        objectFit: "contain",
-        filter: "contrast(1.08) saturate(1.05)"
-      }}
-      priority
-    />
-  </div>
-</div>
+  <div style={{ maxWidth: 1280, margin: "0 auto", position: "relative" }}>
+    
+    {/* Grid: Text + Image side by side */}
+    <div style={{ 
+      display: "grid", 
+      gridTemplateColumns: "1fr 460px", 
+      gap: 80, 
+      alignItems: "center" 
+    }} className="vision-grid">
+      
+      {/* Left: Text */}
+      <div className="fade-up">
+        <div className="tag" style={{ marginBottom: 24 }}>Vision</div>
+        <h2 style={{ 
+          fontFamily: "var(--font-display)", 
+          fontSize: "clamp(32px, 4vw, 56px)", 
+          fontWeight: 800, 
+          letterSpacing: "-0.03em", 
+          lineHeight: 1.1, 
+          marginBottom: 24 
+        }}>
+          We don't follow trends.<br />
+          <span style={{ color: "var(--text-secondary)", fontStyle: "italic", fontWeight: 400 }}>We engineer the systems that create them.</span>
+        </h2>
+        <p style={{ fontSize: 17, color: "var(--text-secondary)", lineHeight: 1.85 }}>
+          Africa has 1.4 billion people and the world's fastest-growing youth population. We're building the digital infrastructure for that future — custom, precise, and uncompromising in quality.
+        </p>
+      </div>
 
+      {/* Right: Your Developer Image */}
+      <div className="fade-up" style={{ 
+        display: "flex", 
+        justifyContent: "center", 
+        alignItems: "center"
+      }}>
+        <Image 
+          src="/developer-reviewing-code.png"
+          alt="Young African software engineer reviewing code"
+          width={460}
+          height={620}
+          style={{ 
+            objectFit: "contain",
+            filter: "drop-shadow(0 40px 80px rgba(0, 0, 0, 0.45))",
+            maxHeight: "620px"
+          }}
+          priority
+        />
+      </div>
+    </div>
 
-          {/* Values grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2 }} className="values-grid">
-            {[
-              { n: "01", title: "Precision Engineering", text: "Every line of code is intentional. We build systems that handle edge cases, scale under load, and last decades." },
-              { n: "02", title: "African Context", text: "Our solutions understand local infrastructure, regulations, payment systems, and real user behavior across the continent." },
-              { n: "03", title: "Global Standard", text: "We hold our work to the same standards as the world's top software companies — because Africa's builders deserve nothing less." },
-            ].map(v => (
-              <div key={v.n} className="fade-up" style={{ padding: "48px 40px", background: "var(--surface)", borderRight: "1px solid var(--border)" }}>
-                <div style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 700, color: "var(--blue)", letterSpacing: "0.2em", marginBottom: 24 }}>{v.n}</div>
-                <h3 style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 700, marginBottom: 16, letterSpacing: "-0.02em" }}>{v.title}</h3>
-                <p style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.85 }}>{v.text}</p>
-              </div>
-            ))}
-          </div>
+    {/* Values grid - stays below */}
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 2, marginTop: 100 }} className="values-grid">
+      {[
+        { n: "01", title: "Precision Engineering", text: "Every line of code is intentional. We build systems that handle edge cases, scale under load, and last decades." },
+        { n: "02", title: "African Context", text: "Our solutions understand local infrastructure, regulations, payment systems, and real user behavior across the continent." },
+        { n: "03", title: "Global Standard", text: "We hold our work to the same standards as the world's top software companies — because Africa's builders deserve nothing less." },
+      ].map(v => (
+        <div key={v.n} className="fade-up" style={{ padding: "48px 40px", background: "var(--surface)", borderRight: "1px solid var(--border)" }}>
+          <div style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 700, color: "var(--blue)", letterSpacing: "0.2em", marginBottom: 24 }}>{v.n}</div>
+          <h3 style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 700, marginBottom: 16, letterSpacing: "-0.02em" }}>{v.title}</h3>
+          <p style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.85 }}>{v.text}</p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ── SERVICES ── */}
       <section ref={servicesRef} style={{ padding: "120px 32px", position: "relative", overflow: "hidden" }}>
