@@ -70,14 +70,14 @@ export default function Nav() {
       </div>
 
       {/* Mobile menu */}
-      <div style={{ overflow: "hidden", maxHeight: open ? 360 : 0, transition: "max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1)", background: "var(--charcoal)", borderTop: open ? "1px solid var(--border)" : "none" }} className="md:hidden">
-        <div style={{ padding: "24px 32px 32px" }}>
+      <div style={{ display: open ? "block" : "none", overflow: "hidden", maxHeight: open ? 420 : 0, transition: "max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1)", background: "var(--charcoal)", borderTop: open ? "1px solid var(--border)" : "none" }} className="md:hidden">
+        <div style={{ padding: "24px 24px 32px" }}>
           {links.map(l => (
-            <Link key={l.href} href={l.href} style={{ display: "block", padding: "14px 0", fontFamily: "var(--font-display)", fontSize: 20, fontWeight: 700, color: pathname === l.href ? "var(--blue-bright)" : "var(--text-primary)", textDecoration: "none", borderBottom: "1px solid var(--border)" }}>{l.label}</Link>
+            <Link key={l.href} href={l.href} style={{ display: "block", padding: "14px 0", fontFamily: "var(--font-display)", fontSize: 18, fontWeight: 700, color: pathname === l.href ? "var(--blue-bright)" : "var(--text-primary)", textDecoration: "none", borderBottom: "1px solid var(--border)" }}>{l.label}</Link>
           ))}
-          <div style={{ display: "flex", gap: 12, marginTop: 24 }}>
-            <Link href="/impact#contact" className="btn-ghost" style={{ flex: 1, justifyContent: "center", fontSize: 12 }}>Work With Us</Link>
-            <Link href="/ogera#join" className="btn-primary" style={{ flex: 1, justifyContent: "center", fontSize: 12 }}>Join Ogera</Link>
+          <div style={{ display: "flex", gap: 12, flexDirection: "column", marginTop: 24 }}>
+            <Link href="/impact#contact" className="btn-ghost" style={{ width: "100%", justifyContent: "center", fontSize: 12 }}>Work With Us</Link>
+            <Link href="/ogera#join" className="btn-primary" style={{ width: "100%", justifyContent: "center", fontSize: 12 }}>Join Ogera</Link>
           </div>
         </div>
       </div>

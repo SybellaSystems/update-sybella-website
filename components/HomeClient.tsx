@@ -238,7 +238,7 @@ export default function HomeClient() {
     
     <div style={{ 
       display: "grid", 
-      gridTemplateColumns: "1fr 1fr", 
+      gridTemplateColumns: "minmax(380px, 1fr) minmax(520px, 1.4fr)", 
       gap: 80, 
       alignItems: "center" 
     }} className="vision-grid">
@@ -268,19 +268,18 @@ export default function HomeClient() {
         display: "flex", 
         justifyContent: "center" 
       }}>
-        <div style={{ position: "relative", width: "100%", maxWidth: "580px" }}>
+        <div style={{ position: "relative", width: "100%", maxWidth: "900px", minHeight: "720px", borderRadius: 28, overflow: "hidden" }}>
           <Image 
-            src="/developer-reviewing-code.png"
-            alt="Sybella Systems engineer reviewing code"
-            width={680}
-            height={720}
+            src="/desktop-window-codes.jpg"
+            alt="Sybella Systems development workspace"
+            fill
+            sizes="(max-width: 1024px) 100vw, 900px"
             style={{ 
-              objectFit: "contain",
-              width: "100%",
-              height: "auto",
-              filter: "drop-shadow(0 40px 90px rgba(0,0,0,0.55))"
+              objectFit: "cover",
+              filter: "drop-shadow(0 40px 90px rgba(0,0,0,0.35))"
             }}
             priority
+            quality={85}
           />
 
           {/* Bottom Fade to Hide Cut-off Legs */}
@@ -289,7 +288,7 @@ export default function HomeClient() {
             bottom: 0,
             left: 0,
             right: 0,
-            height: "180px",
+            height: "220px",
             background: "linear-gradient(to top, var(--charcoal) 20%, transparent 100%)",
             pointerEvents: "none"
           }} />
