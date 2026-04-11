@@ -97,9 +97,9 @@ export default function HomeClient() {
       {/* ── HERO ── */}
       <section ref={heroRef} style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", paddingTop: 72 }}>
         {/* Background grid */}
-        <div className="grid-pattern" style={{ position: "absolute", inset: 0, opacity: 0.5 }} />
+        <div className="grid-pattern" style={{ position: "absolute", inset: 0, opacity: 0.7 }} />
         {/* Background globe pattern */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "120px 120px", opacity: 0.03, pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "120px 120px", opacity: 0.15, pointerEvents: "none" }} />
         {/* Background gradient blob */}
         <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: 800, height: 800, borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "absolute", bottom: 0, right: 0, width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle, rgba(45,186,133,0.04) 0%, transparent 70%)", pointerEvents: "none" }} />
@@ -176,7 +176,7 @@ export default function HomeClient() {
       {/* ── SERVICES ── */}
       <section ref={servicesRef} style={{ padding: "120px 32px", position: "relative", overflow: "hidden" }}>
         {/* Background file pattern */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/file.svg')", backgroundRepeat: "repeat", backgroundSize: "100px 100px", opacity: 0.02, pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/file.svg')", backgroundRepeat: "repeat", backgroundSize: "100px 100px", opacity: 0.12, pointerEvents: "none" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 64, flexWrap: "wrap", gap: 24 }}>
             <div className="fade-up">
@@ -208,7 +208,7 @@ export default function HomeClient() {
       {/* ── OGERA SPOTLIGHT ── */}
       <section ref={ogeraRef} style={{ padding: "120px 32px", background: "var(--charcoal)", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
         {/* Background globe pattern */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "140px 140px", opacity: 0.02, pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "140px 140px", opacity: 0.12, pointerEvents: "none" }} />
         <div style={{ position: "absolute", top: "30%", right: 0, width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(45,186,133,0.07) 0%, transparent 70%)" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }} className="hero-grid">
           {/* Visual side */}

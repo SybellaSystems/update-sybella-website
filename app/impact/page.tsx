@@ -32,8 +32,8 @@ export default function ImpactPage() {
       {/* Hero */}
       <section style={{ padding: "100px 32px 80px", borderBottom: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
         {/* Background globe pattern */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "140px 140px", opacity: 0.02, pointerEvents: "none" }} />
-        <div className="grid-pattern" style={{ position: "absolute", inset: 0, opacity: 0.4 }} />
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "140px 140px", opacity: 0.15, pointerEvents: "none" }} />
+        <div className="grid-pattern" style={{ position: "absolute", inset: 0, opacity: 0.6 }} />
         <div style={{ position: "absolute", bottom: 0, left: 0, width: 600, height: 500, background: "radial-gradient(ellipse at left bottom, rgba(45,186,133,0.06) 0%, transparent 70%)" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto", position: "relative" }}>
           <div className="tag tag-emerald" style={{ marginBottom: 28 }}>Impact & Story</div>

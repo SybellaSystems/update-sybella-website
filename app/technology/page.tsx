@@ -46,8 +46,8 @@ export default function TechPage() {
       {/* Hero */}
       <section style={{ padding: "100px 32px 80px", borderBottom: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
         {/* Background file pattern */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/file.svg')", backgroundRepeat: "repeat", backgroundSize: "130px 130px", opacity: 0.02, pointerEvents: "none" }} />
-        <div className="grid-pattern" style={{ position: "absolute", inset: 0, opacity: 0.35 }} />
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/file.svg')", backgroundRepeat: "repeat", backgroundSize: "130px 130px", opacity: 0.12, pointerEvents: "none" }} />
+        <div className="grid-pattern" style={{ position: "absolute", inset: 0, opacity: 0.6 }} />
         <div style={{ position: "absolute", top: 0, right: 0, width: 700, height: 500, background: "radial-gradient(ellipse at right top, rgba(201,168,76,0.06) 0%, transparent 70%)" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto", position: "relative" }}>
           <div className="tag" style={{ marginBottom: 28 }}>Technology & Innovation</div>
@@ -67,7 +67,7 @@ export default function TechPage() {
       {/* Architecture visual */}
       <section ref={s1} style={{ padding: "100px 32px", background: "var(--charcoal)", position: "relative", overflow: "hidden" }}>
         {/* Background globe pattern */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "150px 150px", opacity: 0.02, pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "150px 150px", opacity: 0.12, pointerEvents: "none" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 72, alignItems: "start" }} className="hero-grid">
           <div>
             <div className="fade-up tag" style={{ marginBottom: 24 }}>Architecture</div>

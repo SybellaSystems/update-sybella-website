@@ -31,8 +31,8 @@ export default function OgeraPage() {
       {/* Hero */}
       <section style={{ minHeight: "88vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", borderBottom: "1px solid var(--border)" }}>
         {/* Background globe pattern */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "120px 120px", opacity: 0.02, pointerEvents: "none" }} />
-        <div className="grid-pattern" style={{ position: "absolute", inset: 0, opacity: 0.4 }} />
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "120px 120px", opacity: 0.15, pointerEvents: "none" }} />
+        <div className="grid-pattern" style={{ position: "absolute", inset: 0, opacity: 0.6 }} />
         <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 600, background: "radial-gradient(ellipse 80% 60% at 60% 30%, rgba(45,186,133,0.08) 0%, transparent 70%)" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "80px 32px", position: "relative" }}>
           <div className="tag tag-emerald" style={{ marginBottom: 28 }}>
