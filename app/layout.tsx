@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image", title: "Sybella Systems", description: "Engineering Africa's digital future.", images: ["/og-image.png"] },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 } },
-  icons: { icon: "/favicon.svg", apple: "/apple-touch-icon.png" },
+  icons: { icon: "/LOGO WITH NO BG.png", apple: "/apple-touch-icon.png" },
   manifest: "/manifest.json",
 };
 

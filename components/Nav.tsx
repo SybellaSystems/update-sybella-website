@@ -27,13 +27,38 @@ export default function Nav() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "nav-blur" : "bg-transparent"}`}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px", height: 72, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {/* Wordmark */}
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none" }}>
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <rect width="32" height="32" rx="2" fill="#c9a84c" />
-            <path d="M10 22C10 19.8 11.6 18.4 14 18.1L21 17C22.2 16.8 23 15.9 23 14.7C23 13.2 21.8 12 20 12H12" stroke="#080808" strokeWidth="2.2" strokeLinecap="round" />
-            <path d="M22 10C22 12.2 20.4 13.6 18 13.9L11 15C9.8 15.2 9 16.1 9 17.3C9 18.8 10.2 20 12 20H20" stroke="#080808" strokeWidth="2.2" strokeLinecap="round" />
-          </svg>
-          <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 18, letterSpacing: "-0.03em", color: "var(--text-primary)" }}>SYBELLA</span>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 16, textDecoration: "none" }}>
+          <div style={{
+            width: 48,
+            height: 48,
+            borderRadius: 12,
+            background: "linear-gradient(135deg, rgba(201,168,76,0.1), rgba(59,130,246,0.1))",
+            border: "1px solid rgba(201,168,76,0.2)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "relative",
+            overflow: "hidden",
+            boxShadow: "0 4px 20px rgba(201,168,76,0.15)"
+          }}>
+            <img
+              src="/LOGO WITH NO BG.png"
+              alt="Sybella Systems Logo"
+              style={{
+                width: 32,
+                height: 32,
+                objectFit: "contain",
+                filter: "brightness(0) invert(1)"
+              }}
+            />
+            <div style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(135deg, rgba(201,168,76,0.05), rgba(59,130,246,0.05))",
+              borderRadius: 12
+            }} />
+          </div>
+          <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 20, letterSpacing: "-0.03em", color: "var(--text-primary)" }}>SYBELLA</span>
         </Link>
 
         {/* Desktop nav */}
