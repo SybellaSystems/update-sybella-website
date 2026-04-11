@@ -87,11 +87,13 @@ export default function HomeClient() {
   const servicesRef = useRef<HTMLDivElement>(null);
   const ogeraRef = useRef<HTMLDivElement>(null);
   const trustRef = useRef<HTMLDivElement>(null);
+  const recentWorkRef = useRef<HTMLDivElement>(null);
 
   useIntersection(aboutRef as React.RefObject<HTMLElement>);
   useIntersection(servicesRef as React.RefObject<HTMLElement>);
   useIntersection(ogeraRef as React.RefObject<HTMLElement>);
   useIntersection(trustRef as React.RefObject<HTMLElement>);
+  useIntersection(recentWorkRef as React.RefObject<HTMLElement>);
 
   return (
     <div>
@@ -207,7 +209,16 @@ export default function HomeClient() {
       </section>
 
       {/* ── RECENT WORK ── */}
-      <section style={{ padding: "120px 32px", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
+      {/* ── RECENT WORK ── */}
+<section 
+  ref={recentWorkRef}
+  style={{ 
+    padding: "120px 32px", 
+    borderTop: "1px solid var(--border)", 
+    position: "relative", 
+    overflow: "hidden" 
+  }}
+>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/file.svg')", backgroundRepeat: "repeat", backgroundSize: "120px 120px", opacity: 0.08, pointerEvents: "none" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div className="fade-up" style={{ marginBottom: 64 }}>
