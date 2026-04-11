@@ -270,7 +270,7 @@ export default function HomeClient() {
       }}>
         <div style={{ position: "relative", width: "100%", maxWidth: "900px", minHeight: "720px", borderRadius: 28, overflow: "hidden" }}>
           <Image 
-            src="/desktop-window-codes.jpg"
+            src="/developer-reviewing-codes.png"
             alt="Sybella Systems development workspace"
             fill
             sizes="(max-width: 1024px) 100vw, 900px"
