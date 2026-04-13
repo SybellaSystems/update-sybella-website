@@ -184,7 +184,7 @@ export default function HomeClient() {
           <div>
             <div className="tag" style={{ marginBottom: "clamp(20px, 4vw, 28px)" }}>
               <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--blue)", display: "inline-block" }} />
-              Kigali, Rwanda · Est. 2025
+              Rulindo, Rwanda · Est. 2025
             </div>
             <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(36px, 8vw, 76px)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.0, marginBottom: "clamp(20px, 4vw, 28px)" }}>
               Engineering<br />

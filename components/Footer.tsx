@@ -49,7 +49,7 @@ export default function Footer() {
           ))}
         </div>
         <div style={{ padding: "clamp(16px, 3vw, 24px) 0", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "clamp(12px, 2vw, 16px)" }}>
-          <p style={{ fontSize: "clamp(11px, 1.5vw, 13px)", color: "var(--text-tertiary)" }}>© 2025 Sybella Systems Ltd. Kigali, Rwanda. All rights reserved.</p>
+          <p style={{ fontSize: "clamp(11px, 1.5vw, 13px)", color: "var(--text-tertiary)" }}>&copy; {new Date().getFullYear()} Sybella Systems Ltd. Rulindo, Rwanda. All rights reserved.</p>
           <div style={{ display: "flex", gap: "clamp(16px, 3vw, 24px)", flexWrap: "wrap" }}>
             {[["Privacy Policy", "/privacy"], ["Terms", "/terms"], ["Blog", "/blog"]].map(([l, h]) => (
               <Link key={l} href={h} style={{ fontSize: "clamp(11px, 1.5vw, 13px)", color: "var(--text-tertiary)", textDecoration: "none", minHeight: "44px", display: "flex", alignItems: "center" }}>{l}</Link>
