@@ -30,7 +30,7 @@ export default function BlogPost({ params }: BlogPostProps) {
       alert("No chat messages to export");
       return;
     }
-    exportChatToPDF(chatMessages, blog?.title || "Blog Chat");
+    console.log("Export disabled for now");
   };
 
   if (!blog) {
