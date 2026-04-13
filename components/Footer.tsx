@@ -2,16 +2,16 @@
 import Link from "next/link";
 
 const cols = [
-  { title: "Company", links: [["Home", "/"], ["About", "/impact"], ["Technology", "/technology"], ["Impact", "/impact"]] },
+  { title: "Company", links: [["Home", "/"], ["About", "/impact"], ["Technology", "/technology"], ["Insights", "/blog"]] },
   { title: "Products", links: [["Ogera Platform", "/ogera"], ["For Students", "/ogera#students"], ["For Employers", "/ogera#employers"], ["Join Beta", "/ogera#join"]] },
-  { title: "Services", links: [["Custom Software", "/technology"], ["SaaS Development", "/technology"], ["ERP Systems", "/technology"], ["Cloud Solutions", "/technology"]] },
+  { title: "Resources", links: [["Blog", "/blog"], ["Case Studies", "/blog?category=Case Study"], ["Technical Guides", "/blog?category=Engineering"], ["Newsletter", "#newsletter"]] },
 ];
 
 export default function Footer() {
   return (
     <footer style={{ background: "var(--charcoal)", borderTop: "1px solid var(--border)" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "clamp(60px, 10vw, 80px) clamp(16px, 4vw, 32px) 0" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "clamp(40px, 8vw, 60px)", paddingBottom: "clamp(40px, 8vw, 60px)", borderBottom: "1px solid var(--border)" }} className="grid-footer">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "clamp(40px, 8vw, 60px)", paddingBottom: "clamp(40px, 8vw, 60px)", borderBottom: "1px solid var(--border)" }}>
           {/* Brand */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "clamp(8px, 2vw, 12px)", marginBottom: "clamp(12px, 2vw, 20px)" }}>
@@ -51,7 +51,7 @@ export default function Footer() {
         <div style={{ padding: "clamp(16px, 3vw, 24px) 0", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "clamp(12px, 2vw, 16px)" }}>
           <p style={{ fontSize: "clamp(11px, 1.5vw, 13px)", color: "var(--text-tertiary)" }}>© 2025 Sybella Systems Ltd. Kigali, Rwanda. All rights reserved.</p>
           <div style={{ display: "flex", gap: "clamp(16px, 3vw, 24px)", flexWrap: "wrap" }}>
-            {[["Privacy Policy", "/privacy"], ["Terms", "/terms"]].map(([l, h]) => (
+            {[["Privacy Policy", "/privacy"], ["Terms", "/terms"], ["Blog", "/blog"]].map(([l, h]) => (
               <Link key={l} href={h} style={{ fontSize: "clamp(11px, 1.5vw, 13px)", color: "var(--text-tertiary)", textDecoration: "none", minHeight: "44px", display: "flex", alignItems: "center" }}>{l}</Link>
             ))}
           </div>
