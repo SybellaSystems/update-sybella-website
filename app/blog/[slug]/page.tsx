@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ChatWidget from "@/components/ChatWidget";
 import { mockBlogs } from "@/lib/mockBlogs";
-import { exportChatToPDF } from "@/lib/pdfGenerator";
+
 
 interface BlogPostProps {
   params: { slug: string };
