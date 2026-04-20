@@ -233,7 +233,7 @@ export default function HomeClient() {
           
           <div style={{ 
             display: "grid", 
-            gridTemplateColumns: "1fr", 
+            gridTemplateColumns: "1fr auto auto", 
             gap: "clamp(40px, 8vw, 80px)", 
             alignItems: "center" 
           }} className="vision-grid">
@@ -360,27 +360,8 @@ export default function HomeClient() {
             </h2>
           </div>
 
-          {/* 3D Cube Container */}
-          <div style={{ 
-            perspective: "1200px", 
-            width: "100%", 
-            maxWidth: "clamp(300px, 100%, 620px)", 
-            height: "clamp(350px, 80vw, 520px)", 
-            margin: "0 auto",
-            position: "relative"
-          }}>
-            <div 
-              ref={cubeRef}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              style={{
-                width: "100%",
-                height: "100%",
-                position: "relative",
-                transformStyle: "preserve-3d",
-                transition: "transform 1.2s cubic-bezier(0.23, 1, 0.32, 1)",
-                transform: "rotateY(0deg)",
-              }}
+          <div style={{ textAlign: "center", color: "var(--text-secondary)" }}>
+  Projects coming soon... </div>
             >
               {projects.map((project, index) => (
                 <div
