@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: { default: "Sybella Systems — Africa's Premium Software Company", template: "%s | Sybella Systems" },
   description: "Sybella Systems builds world-class software, custom ERP systems, and digital platforms across Africa. Creators of Ogera — the continent's premier student employment platform.",
-  keywords: ["cloud solutions Rwanda", "custom ERP developers Lagos", "premium SaaS development Nairobi", "software company Africa", "Ogera student jobs Africa", "Sybella Systems Kigali"],
+  keywords: ["cloud solutions Rwanda", "custom ERP developers Lagos", "premium SaaS development Nairobi", "software company Africa", "Ogera student jobs Africa", "Sybella Systems Rulindo"],
   authors: [{ name: "Sybella Systems", url: "https://sybellasystems.co.rw" }],
   creator: "Sybella Systems",
   publisher: "Sybella Systems",
@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           "url": "https://sybellasystems.co.rw",
           "logo": "https://sybellasystems.co.rw/logo.svg",
           "description": "Africa's premier software engineering company",
-          "address": { "@type": "PostalAddress", "addressLocality": "Kigali", "addressCountry": "RW" },
+          "address": { "@type": "PostalAddress", "addressLocality": "Rulindo", "addressCountry": "RW" },
           "sameAs": ["https://linkedin.com/company/sybella-systems", "https://twitter.com/sybellasystems"],
         }) }} />
       </head>
