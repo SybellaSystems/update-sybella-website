@@ -41,21 +41,24 @@
   </url>
 
   <url>
-    <loc>https://sybellasystems.co.rw/technology</loc>
+    <loc>https://sybellasystems.co.rw/ogera#students</loc>
     <priority>0.9</priority>
-    <changefreq>bi-weekly</changefreq>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
 
   <url>
     <loc>https://sybellasystems.co.rw/ogera#employers</loc>
     <priority>0.9</priority>
-    <changefreq>bi-weekly</changefreq>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
 
   <url>
     <loc>https://sybellasystems.co.rw/ogera#join</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
 
   <!--  Services  -->
@@ -63,24 +66,28 @@
     <loc>https://sybellasystems.co.rw/services/custom-software</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
 
   <url>
     <loc>https://sybellasystems.co.rw/services/saas-development</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
 
   <url>
     <loc>https://sybellasystems.co.rw/services/erp-systems</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
 
   <url>
     <loc>https://sybellasystems.co.rw/services/cloud-solutions</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
 
   <!--  Help & Support  -->
@@ -88,12 +95,14 @@
     <loc>https://sybellasystems.co.rw/help-center</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
 
   <url>
     <loc>https://sybellasystems.co.rw/blog</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
 
   <!--  Legal & Compliance  -->
@@ -101,25 +110,29 @@
     <loc>https://sybellasystems.co.rw/terms</loc>
     <priority>0.5</priority>
     <changefreq>yearly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
 
   <url>
     <loc>https://sybellasystems.co.rw/privacy</loc>
     <priority>0.5</priority>
     <changefreq>yearly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
 
   <url>
     <loc>https://sybellasystems.co.rw/cookie-policy</loc>
     <priority>0.5</priority>
     <changefreq>yearly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
 
   <!--  Contact & Engagement  -->
   <url>
-    <loc>https://sybellasystems.co.rw/impact#contact</loc>
+    <loc>https://sybellasystems.co.rw/contact</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
 
   <!--  Ecosystem & Related Links  -->
@@ -127,10 +140,7 @@
     <loc>https://ogera.sybellasystems.co.rw</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
+    <lastmod>2026-04-20</lastmod>
   </url>
-   <url>
-     <loc>https://sybellasystems.co.rw/ogera#join</loc>
-     <priority>0.9</priority>
-     <changefreq>weekly</changefreq>
-  </url>
+
 </urlset>
