@@ -37,10 +37,6 @@ function HeroOrb() {
         {/* Core glow */}
         <circle cx="260" cy="260" r="90" fill="url(#orb-g)" />
         <circle cx="260" cy="260" r="60" fill="url(#orb-g2)" />
-        {/* Central S mark */}
-        <circle cx="260" cy="260" r="44" fill="#16161f" stroke="#c9a84c" strokeWidth="1" strokeOpacity="0.6" />
-        <path d="M247 278C247 274.4 249.6 272 254 271.4L264 270C267 269.6 269 267.9 269 265.4C269 262.7 266.8 260.6 264 260.6H252" stroke="#c9a84c" strokeWidth="2" strokeLinecap="round" />
-        <path d="M273 242C273 245.6 270.4 248 266 248.6L256 250C253 250.4 251 252.1 251 254.6C251 257.3 253.2 259.4 256 259.4H268" stroke="#c9a84c" strokeWidth="2" strokeLinecap="round" />
         {/* Orbital dots */}
         {[0, 72, 144, 216, 288].map((a, i) => (
           <circle key={i} cx={260 + 140 * Math.cos((a * Math.PI) / 180)} cy={260 + 140 * Math.sin((a * Math.PI) / 180)} r={i % 2 === 0 ? 3 : 2} fill={i % 2 === 0 ? "#c9a84c" : "#2dba85"} fillOpacity={i % 2 === 0 ? 0.6 : 0.4} />
@@ -110,21 +106,12 @@ export default function HomeClient() {
               <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--blue)", display: "inline-block" }} />
               Kigali, Rwanda · Est. 2025
             </div>
-           <div style={{ display: "flex", alignItems: "center", gap: "clamp(16px, 4vw, 24px)", flexWrap: "wrap" }}>
-  <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(36px, 8vw, 76px)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.0 }}>
-    Engineering<br />
-    <span className="gradient-text">Africa's</span><br />
-    Digital Future
-  </h1>
-  <div style={{ width: "clamp(80px, 15vw, 140px)", height: "clamp(80px, 15vw, 140px)", flexShrink: 0 }}>
-    <svg viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
-      <circle cx="260" cy="260" r="44" fill="#16161f" stroke="#c9a84c" strokeWidth="1" strokeOpacity="0.6" />
-      <path d="M247 278C247 274.4 249.6 272 254 271.4L264 270C267 269.6 269 267.9 269 265.4C269 262.7 266.8 260.6 264 260.6H252" stroke="#ffeb3b" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-      <path d="M273 242C273 245.6 270.4 248 266 248.6L256 250C253 250.4 251 252.1 251 254.6C251 257.3 253.2 259.4 256 259.4H268" stroke="#ffeb3b" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-    </svg>
-  </div>
-</div>
-            <p style={{ fontSize: "clamp(14px, 2.5vw, 18px)", color: "var(--text-secondary)", lineHeight: 1.8, maxWidth: 480, marginBottom: "clamp(32px, 6vw, 44px)", marginTop: "clamp(16px, 3vw, 24px)" }}>
+            <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(36px, 8vw, 76px)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.0, marginBottom: "clamp(20px, 4vw, 28px)" }}>
+              Engineering<br />
+              <span className="gradient-text">Africa's</span><br />
+              Digital Future
+            </h1>
+            <p style={{ fontSize: "clamp(14px, 2.5vw, 18px)", color: "var(--text-secondary)", lineHeight: 1.8, maxWidth: 480, marginBottom: "clamp(32px, 6vw, 44px)" }}>
               We build the software infrastructure that powers Africa's most ambitious companies — from precision ERP systems to continent-defining SaaS platforms.
             </p>
             <div style={{ display: "flex", gap: "clamp(12px, 3vw, 16px)", flexWrap: "wrap", marginBottom: "clamp(40px, 8vw, 60px)" }}>
