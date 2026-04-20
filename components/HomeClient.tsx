@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -89,83 +89,11 @@ export default function HomeClient() {
   const trustRef = useRef<HTMLDivElement>(null);
   const recentWorkRef = useRef<HTMLDivElement>(null);
 
-  type Project = {
-    icon: string;
-    title: string;
-    subtitle: string;
-    desc: string;
-    image: string | null;
-    accent?: string;
-  };
-
-  const projects: Project[] = [
-    {
-      icon: "GA",
-      title: "Graben Academy",
-      subtitle: "Educational Technology Platform",
-      desc: "A comprehensive learning management system designed for African educational institutions with course management, progress tracking, and assessments.",
-      image: "/graben-academy-website-by-sybella.png",
-      accent: "#3b82f6",
-    },
-    {
-      icon: "◎",
-      title: "Ogera",
-      subtitle: "Student Employment OS",
-      desc: "Africa's premier platform connecting university students with meaningful employment through AI-powered skills matching and career development.",
-      image: null,
-      accent: "#2dba85",
-    },
-    {
-      icon: "⬡",
-      title: "SyCore ERP",
-      subtitle: "Enterprise Resource Planning",
-      desc: "Precision-built ERP system handling inventory, HR, finance, and compliance for complex African business operations.",
-      image: null,
-      accent: "#c9a84c",
-    },
-  ];
-
-  const [currentFace, setCurrentFace] = useState(0);
-  const cubeRef = useRef<HTMLDivElement>(null);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
-
   useIntersection(aboutRef as React.RefObject<HTMLElement>);
   useIntersection(servicesRef as React.RefObject<HTMLElement>);
   useIntersection(ogeraRef as React.RefObject<HTMLElement>);
   useIntersection(trustRef as React.RefObject<HTMLElement>);
   useIntersection(recentWorkRef as React.RefObject<HTMLElement>);
-
-  // Auto-rotate logic
-  useEffect(() => {
-    const rotateCube = () => {
-      const nextFace = (currentFace + 1) % projects.length;
-      setCurrentFace(nextFace);
-
-      if (cubeRef.current) {
-        cubeRef.current.style.transform = `rotateY(-${nextFace * 90}deg)`;
-      }
-    };
-
-    intervalRef.current = setInterval(rotateCube, 5000);
-
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [currentFace, projects.length]);
-
-  const handleMouseEnter = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-  };
-
-  const handleMouseLeave = () => {
-    intervalRef.current = setInterval(() => {
-      const nextFace = (currentFace + 1) % projects.length;
-      setCurrentFace(nextFace);
-      if (cubeRef.current) {
-        cubeRef.current.style.transform = `rotateY(-${nextFace * 90}deg)`;
-      }
-    }, 5000);
-  };
 
   return (
     <div>
@@ -341,122 +269,30 @@ export default function HomeClient() {
         </div>
       </section>
 
-/* ── RECENT WORK ── 3D Cube Carousel */
-<section 
-  ref={recentWorkRef}
-  style={{ 
-    padding: "clamp(60px, 10vw, 80px) clamp(16px, 5vw, 32px)", 
-    borderTop: "1px solid var(--border)", 
-    background: "var(--charcoal)", 
-    position: "relative", 
-    overflow: "hidden" 
-  }}
->
-  <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-    <div className="fade-up" style={{ marginBottom: "clamp(40px, 8vw, 64px)", textAlign: "center" }}>
-      <div className="tag" style={{ marginBottom: "clamp(16px, 2vw, 20px)" }}>Recent Work</div>
-      <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(24px, 5vw, 48px)", fontWeight: 800 }}>
-        Building Africa's Digital Future
-      </h2>
-    </div>
-
-    {/* ✅ FIXED CUBE WRAPPER */}
-    <div
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        perspective: "1200px",
-        width: "100%",
-        height: "clamp(400px, 60vw, 600px)",
-        position: "relative"
-      }}
-    >
-      <div
-        ref={cubeRef}
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "relative",
-          transformStyle: "preserve-3d",
-          transition: "transform 1s ease"
+      {/* ── RECENT WORK ── */}
+      <section 
+        ref={recentWorkRef}
+        style={{ 
+          padding: "clamp(60px, 10vw, 80px) clamp(16px, 5vw, 32px)", 
+          borderTop: "1px solid var(--border)", 
+          background: "var(--charcoal)", 
+          position: "relative", 
+          overflow: "hidden" 
         }}
       >
-
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="cube-face"
-            style={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              border: "1px solid var(--border)",
-              borderRadius: "12px",
-              overflow: "hidden",
-              background: "var(--surface)",
-              transform: `rotateY(${index * 90}deg) translateZ(350px)`
-            }}
-          >
-
-            {/* ✅ GRID: TEXT + IMAGE SIDE BY SIDE */}
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              height: "100%"
-            }}>
-
-              {/* LEFT TEXT */}
-              <div style={{ padding: "clamp(24px, 5vw, 40px)" }}>
-                <div style={{ marginBottom: 20 }}>
-                  <h3 style={{ fontSize: "clamp(20px, 4vw, 28px)", fontWeight: 700 }}>
-                    {project.title}
-                  </h3>
-                  <p style={{ color: "var(--text-secondary)" }}>
-                    {project.subtitle}
-                  </p>
-                </div>
-
-                <p style={{ color: "var(--text-secondary)", lineHeight: 1.7 }}>
-                  {project.desc}
-                </p>
-              </div>
-
-              {/* RIGHT IMAGE */}
-              <div style={{ position: "relative", background: "#111" }}>
-                {project.image ? (
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    style={{ objectFit: "cover" }}
-                  />
-                ) : (
-                  <div style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    height: "100%",
-                    fontSize: "80px",
-                    opacity: 0.1
-                  }}>
-                    {project.icon}
-                  </div>
-                )}
-              </div>
-
-            </div>
+        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+          <div className="fade-up" style={{ marginBottom: "clamp(40px, 8vw, 64px)", textAlign: "center" }}>
+            <div className="tag" style={{ marginBottom: "clamp(16px, 2vw, 20px)" }}>Recent Work</div>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(24px, 5vw, 48px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
+              Building Africa's Digital Future
+            </h2>
           </div>
-        ))}
 
-      </div>
-    </div>
-
-    <div style={{ textAlign: "center", marginTop: 20, color: "var(--text-secondary)" }}>
-      Auto-rotating every 5 seconds • Hover to pause
-    </div>
-  </div>
-</section>
-
+          <div style={{ textAlign: "center", color: "var(--text-secondary)", fontSize: "clamp(15px, 2.5vw, 17px)" }}>
+            Projects coming soon...
+          </div>
+        </div>
+      </section>
 
       {/* ── TRUST INDICATORS ── */}
       <section ref={trustRef} style={{ padding: "clamp(60px, 10vw, 80px) clamp(16px, 5vw, 32px)", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
