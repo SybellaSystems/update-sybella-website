@@ -102,7 +102,7 @@ export default function Nav() {
       <div style={{ display: open ? "block" : "none", overflow: "hidden", maxHeight: open ? 420 : 0, transition: "max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1)", background: "var(--charcoal)", borderTop: "1px solid var(--border)" }}>
         <div style={{ padding: "clamp(16px, 3vw, 24px)" }}>
           {links.map(l => (
-            <Link key={l.href} href={l.href} style={{ display: "block", padding: "clamp(10px, 2vw, 14px) 0", fontFamily: "var(--font-display)", fontSize: "clamp(16px, 3vw, 18px)", fontWeight: 700, color: pathname === l.href ? "var(--blue-bright)" : "var(--text-primary)", textDecoration: "none", minHeight: "44px", display: "flex", alignItems: "center" }}>
+            <Link key={l.href} href={l.href} style={{ padding: "clamp(10px, 2vw, 14px) 0", fontFamily: "var(--font-display)", fontSize: "clamp(16px, 3vw, 18px)", fontWeight: 700, color: pathname === l.href ? "var(--blue-bright)" : "var(--text-primary)", textDecoration: "none", minHeight: "44px", display: "flex", alignItems: "center" }}>
               {l.label}
             </Link>
           ))}
