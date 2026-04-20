@@ -90,7 +90,7 @@ export default function HomeClient() {
   return (
     <div>
       {/* ── HERO ── */}
-      <section ref={heroRef} style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", paddingTop: "clamp(60px, 10vw, 72px)" }}>
+      <section ref={heroRef} style={{ minHeight: "100vh", display: "flex", alignItems: "center", position: "relative", overflow: "hidden", paddingTop: "clamp(60px, 10vw, 72px)", paddingBottom: 0 }}>
         {/* Background grid */}
         <div className="grid-pattern" style={{ position: "absolute", inset: 0, opacity: 0.7 }} />
         {/* Background globe pattern */}
@@ -120,7 +120,7 @@ export default function HomeClient() {
             </div>
 
             {/* Stats row */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", borderTop: "1px solid var(--border)" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", borderTop: "1px solid var(--border)", paddingTop: "clamp(40px, 8vw, 60px)" }}>
               <Stat n="6" suffix="+" label="Service Verticals" />
               <Stat n="∞" label="Scalable Architecture" />
               <Stat n="1" suffix="st" label="African SaaS Vision" />
