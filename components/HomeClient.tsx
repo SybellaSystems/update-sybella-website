@@ -220,7 +220,7 @@ export default function HomeClient() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section ref={servicesRef} style={{ padding: "clamp(60px, 10vw, 80px) clamp(16px, 5vw, 32px)", position: "relative", overflow: "hidden" }}>
+      <section ref={servicesRef} style={{ padding: "clamp(60px, 10vw, 80px) clamp(16px, 5vw, 32px)", position: "relative", overflow: "hidden", marginBottom: 0 }}>
         {/* Background file pattern */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/file.svg')", backgroundRepeat: "repeat", backgroundSize: "100px 100px", opacity: 0.12, pointerEvents: "none" }} />
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
