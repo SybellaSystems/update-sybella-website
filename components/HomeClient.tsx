@@ -14,44 +14,6 @@ function useIntersection(ref: React.RefObject<HTMLElement | null>) {
   }, [ref]);
 }
 
-/* Abstract SVG visuals */
-function HeroOrb() {
-  return (
-    <div style={{ position: "relative", width: "100%", maxWidth: "clamp(300px, 90vw, 520px)", margin: "0 auto" }}>
-      <svg viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", filter: "drop-shadow(0 0 60px rgba(201,168,76,0.15))" }}>
-        <defs>
-          <radialGradient id="orb-g" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#c9a84c" stopOpacity="0.25" />
-            <stop offset="60%" stopColor="#c9a84c" stopOpacity="0.05" />
-            <stop offset="100%" stopColor="#c9a84c" stopOpacity="0" />
-          </radialGradient>
-          <radialGradient id="orb-g2" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#2dba85" stopOpacity="0.2" />
-            <stop offset="100%" stopColor="#2dba85" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-        {/* Outer rings */}
-        <circle cx="260" cy="260" r="240" stroke="#c9a84c" strokeWidth="0.5" strokeOpacity="0.2" strokeDasharray="4 8" />
-        <circle cx="260" cy="260" r="190" stroke="#c9a84c" strokeWidth="0.5" strokeOpacity="0.15" />
-        <circle cx="260" cy="260" r="140" stroke="#2dba85" strokeWidth="0.5" strokeOpacity="0.2" strokeDasharray="2 6" />
-        {/* Core glow */}
-        <circle cx="260" cy="260" r="90" fill="url(#orb-g)" />
-        <circle cx="260" cy="260" r="60" fill="url(#orb-g2)" />
-        {/* Orbital dots */}
-        {[0, 72, 144, 216, 288].map((a, i) => (
-          <circle key={i} cx={260 + 140 * Math.cos((a * Math.PI) / 180)} cy={260 + 140 * Math.sin((a * Math.PI) / 180)} r={i % 2 === 0 ? 3 : 2} fill={i % 2 === 0 ? "#c9a84c" : "#2dba85"} fillOpacity={i % 2 === 0 ? 0.6 : 0.4} />
-        ))}
-        {[30, 90, 150, 210, 270, 330].map((a, i) => (
-          <circle key={`d-${i}`} cx={260 + 190 * Math.cos((a * Math.PI) / 180)} cy={260 + 190 * Math.sin((a * Math.PI) / 180)} r={1.5} fill="#c9a84c" fillOpacity={0.3} />
-        ))}
-        {/* Connection lines */}
-        <line x1="260" y1="216" x2="320" y2="178" stroke="#c9a84c" strokeWidth="0.5" strokeOpacity="0.2" />
-        <line x1="260" y1="304" x2="194" y2="338" stroke="#2dba85" strokeWidth="0.5" strokeOpacity="0.2" />
-      </svg>
-    </div>
-  );
-}
-
 /* Stat card */
 function Stat({ n, label, suffix = "" }: { n: string; label: string; suffix?: string }) {
   return (
@@ -125,11 +87,6 @@ export default function HomeClient() {
               <Stat n="∞" label="Scalable Architecture" />
               <Stat n="1" suffix="st" label="African SaaS Vision" />
             </div>
-          </div>
-
-          {/* Right orb */}
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <HeroOrb />
           </div>
         </div>
       </section>
