@@ -16,14 +16,42 @@ export default function OgeraPage() {
   useIntersection(s2 as React.RefObject<HTMLElement>);
   useIntersection(s3 as React.RefObject<HTMLElement>);
   useIntersection(s4 as React.RefObject<HTMLElement>);
-  const [form, setForm] = useState({ name: "", email: "", role: "student", university: "" });
+  const [form, setForm] = useState({ name: "", email: "", role: "business", company: "" });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const handle = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
-  const submit = (ev: React.FormEvent) => {
+
+  const submit = async (ev: React.FormEvent) => {
     ev.preventDefault();
-    const body = `New Ogera Beta Registration\n\nName: ${form.name}\nEmail: ${form.email}\nRole: ${form.role}\nUniversity/Company: ${form.university}`;
-    window.location.href = `mailto:bessora@sybellasystems.co.rw?subject=Ogera Beta Registration – ${encodeURIComponent(form.name)}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          company: form.company,
+          role: form.role,
+          message: `New Ogera Beta Registration\n\nRole: ${form.role}\nCompany: ${form.company}`,
+        }),
+      });
+
+      if (response.ok) {
+        setSent(true);
+        setForm({ name: "", email: "", role: "business", company: "" });
+      } else {
+        setError("Failed to submit. Please try again.");
+      }
+    } catch (err) {
+      setError("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -46,7 +74,7 @@ export default function OgeraPage() {
             Ogera doesn't just connect students to jobs. It builds careers. A complete platform for Africa's brightest young professionals to earn, grow, and be recognized.
           </p>
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-            <a href="#join" className="btn-primary" style={{ background: "var(--emerald)" }}>Join the Beta ↓</a>
+            <a href="https://ogera.sybellasystems.co.rw" className="btn-primary" style={{ background: "var(--emerald)" }}>Join the Beta ↗</a>
             <a href="#how" className="btn-ghost">How It Works</a>
           </div>
         </div>
@@ -76,6 +104,10 @@ export default function OgeraPage() {
                 <p style={{ fontSize: 14, color: "var(--text-secondary)", lineHeight: 1.85 }}>{s.text}</p>
               </div>
             ))}
+          </div>
+          <div style={{ marginTop: 72, padding: "40px 32px", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 4, textAlign: "center" }}>
+            <p style={{ fontSize: 15, color: "var(--text-secondary)", marginBottom: 20 }}>Are you a student ready to start earning?</p>
+            <a href="https://ogera.sybellasystems.co.rw" className="btn-primary" style={{ background: "var(--emerald)", display: "inline-flex", justifyContent: "center", padding: "12px 32px" }}>Access Ogera Platform ↗</a>
           </div>
         </div>
       </section>
@@ -142,39 +174,58 @@ export default function OgeraPage() {
               <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--emerald)", display: "inline-block", animation: "pulse 2s infinite" }} />
               Early Access Open
             </div>
-            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 800, letterSpacing: "-0.04em", marginBottom: 20 }}>Join the Beta</h2>
-            <p style={{ fontSize: 16, color: "var(--text-secondary)", lineHeight: 1.8, marginBottom: 48 }}>Be among the first on Ogera. Priority access, founding member status, and direct input into what we build.</p>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 800, letterSpacing: "-0.04em", marginBottom: 20 }}>Partnership Inquiries</h2>
+            <p style={{ fontSize: 16, color: "var(--text-secondary)", lineHeight: 1.8, marginBottom: 28 }}>For university partnerships, enterprise integrations, or institutional access inquiries.</p>
           </div>
-          {sent ? (
-            <div className="fade-up" style={{ padding: 48, background: "var(--emerald-dim)", border: "1px solid rgba(45,186,133,0.3)", borderRadius: 4 }}>
-              <div style={{ fontSize: 40, marginBottom: 16 }}>◎</div>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 700, color: "var(--emerald)", marginBottom: 8 }}>You're on the list.</div>
-              <div style={{ fontSize: 14, color: "var(--text-secondary)" }}>We'll reach out at launch. Welcome to Ogera.</div>
-            </div>
-          ) : (
-            <form onSubmit={submit} className="fade-up" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-              {[
-                { name: "name", placeholder: "Full name", type: "text" },
-                { name: "email", placeholder: "Email address", type: "email" },
-                { name: "university", placeholder: "University or company name", type: "text" },
-              ].map(f => (
-                <input key={f.name} type={f.type} name={f.name} required placeholder={f.placeholder}
-                  value={form[f.name as keyof typeof form]}
-                  onChange={handle}
-                  style={{ padding: "16px 20px", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 3, color: "var(--text-primary)", fontSize: 15, fontFamily: "var(--font-body)", transition: "border-color 0.2s", outline: "none" }}
-                  onFocus={e => e.target.style.borderColor = "var(--emerald)"}
-                  onBlur={e => e.target.style.borderColor = "var(--border)"}
-                />
-              ))}
-              <select name="role" value={form.role} onChange={handle} style={{ padding: "16px 20px", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 3, color: "var(--text-primary)", fontSize: 15, fontFamily: "var(--font-body)", outline: "none" }}>
-                <option value="student">Student</option>
-                <option value="employer">Employer / Recruiter</option>
-                <option value="university">University Partner</option>
-              </select>
-              <button type="submit" className="btn-primary" style={{ background: "var(--emerald)", justifyContent: "center", padding: "18px 32px", fontSize: 14 }}>Request Early Access →</button>
-              <p style={{ fontSize: 12, color: "var(--text-tertiary)" }}>No spam. We'll contact you before launch.</p>
-            </form>
-          )}
+          
+          {/* Quick Links */}
+          <div className="fade-up" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 48 }}>
+            <a href="https://ogera.sybellasystems.co.rw" className="btn-primary" style={{ background: "var(--emerald)", padding: "16px 24px", textDecoration: "none", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
+              For Students & Employers ↗
+            </a>
+            <button onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" })} className="btn-ghost" style={{ padding: "16px 24px", cursor: "pointer" }}>
+              Contact Us ↓
+            </button>
+          </div>
+
+          {/* Contact Form */}
+          <div id="contact-form" style={{ marginTop: 48 }}>
+            {sent ? (
+              <div className="fade-up" style={{ padding: 48, background: "var(--emerald-dim)", border: "1px solid rgba(45,186,133,0.3)", borderRadius: 4 }}>
+                <div style={{ fontSize: 40, marginBottom: 16 }}>◎</div>
+                <div style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 700, color: "var(--emerald)", marginBottom: 8 }}>Message received.</div>
+                <div style={{ fontSize: 14, color: "var(--text-secondary)", marginBottom: 24 }}>We'll be in touch within 24-48 hours.</div>
+                <button onClick={() => setSent(false)} style={{ padding: "10px 20px", background: "var(--emerald)", color: "#fff", border: "none", borderRadius: 2, cursor: "pointer", fontSize: 13, fontWeight: 600 }}>Send another message</button>
+              </div>
+            ) : (
+              <form onSubmit={submit} className="fade-up" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                {[
+                  { name: "name", placeholder: "Full name", type: "text" },
+                  { name: "email", placeholder: "Email address", type: "email" },
+                  { name: "company", placeholder: "University / Organization name", type: "text" },
+                ].map(f => (
+                  <input key={f.name} type={f.type} name={f.name} required placeholder={f.placeholder}
+                    value={form[f.name as keyof typeof form]}
+                    onChange={handle}
+                    style={{ padding: "16px 20px", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 3, color: "var(--text-primary)", fontSize: 15, fontFamily: "var(--font-body)", transition: "border-color 0.2s", outline: "none" }}
+                    onFocus={e => e.target.style.borderColor = "var(--emerald)"}
+                    onBlur={e => e.target.style.borderColor = "var(--border)"}
+                  />
+                ))}
+                <select name="role" value={form.role} onChange={handle} style={{ padding: "16px 20px", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 3, color: "var(--text-primary)", fontSize: 15, fontFamily: "var(--font-body)", outline: "none" }}>
+                  <option value="business">Business / Enterprise</option>
+                  <option value="university">University Partner</option>
+                  <option value="media">Media / Press</option>
+                  <option value="other">Other</option>
+                </select>
+                {error && <div style={{ fontSize: 13, color: "#ff6b6b", padding: "12px 16px", background: "rgba(255,107,107,0.1)", borderRadius: 2 }}>{error}</div>}
+                <button type="submit" className="btn-primary" style={{ background: "var(--emerald)", justifyContent: "center", padding: "18px 32px", fontSize: 14 }} disabled={loading}>
+                  {loading ? "Sending..." : "Send Inquiry →"}
+                </button>
+                <p style={{ fontSize: 12, color: "var(--text-tertiary)" }}>We respond within 48 hours</p>
+              </form>
+            )}
+          </div>
         </div>
       </section>
 
