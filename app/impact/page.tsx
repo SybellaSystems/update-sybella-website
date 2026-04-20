@@ -2,6 +2,11 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
+export const metadata: Metadata = {
+  title: "Impact & Mission | Sybella Systems — Engineering Africa's Future",
+  description: "Learn how Sybella Systems is building world-class software infrastructure across Africa. Founded in Rwanda, serving 5+ African markets. Mission, values, and contact information.",
+};
+
 function useIntersection(ref: React.RefObject<HTMLElement | null>) {
   useEffect(() => {
     const obs = new IntersectionObserver(entries => entries.forEach(e => e.target.classList.toggle("visible", e.isIntersecting)), { threshold: 0.1 });
@@ -69,7 +74,8 @@ export default function ImpactPage() {
             Africa Has<br />the Talent.<br /><span style={{ color: "var(--emerald)" }}>We Build</span><br /><span style={{ color: "var(--blue-bright)" }}>the Systems.</span>
           </h1>
           <p style={{ fontSize: 18, color: "var(--text-secondary)", maxWidth: 520, lineHeight: 1.8 }}>
-            Sybella Systems was born from a simple belief: Africa's builders deserve world-class software infrastructure, built by people who understand the continent.
+          
+  Sybella Systems is an African software company built for Africa's most ambitious founders. We engineer custom ERP systems, SaaS platforms, and digital solutions that empower enterprise companies across the continent. Founded in Rwanda, trusted across 5+ African markets.
           </p>
         </div>
       </section>
@@ -162,7 +168,7 @@ export default function ImpactPage() {
             </p>
             <div className="fade-up" style={{ display: "flex", flexDirection: "column", gap: 20 }}>
               {[
-                { icon: "◎", label: "General Inquiries", value: "bessora@sybellasystems.co.rw" },
+                { icon: "◎", label: "General Inquiries", value: "contact@sybellasystems.co.rw" },
                 { icon: "◈", label: "Location", value: "Rulindo, Rwanda" },
                 { icon: "⬡", label: "Founded", value: "2025 · Private Limited Company" },
               ].map(c => (
@@ -203,7 +209,7 @@ export default function ImpactPage() {
                 <button type="submit" className="btn-primary" style={{ justifyContent: "center", padding: "18px 32px", fontSize: 14 }} disabled={loading}>
                   {loading ? "Sending..." : "Send Message →"}
                 </button>
-                <p style={{ fontSize: 12, color: "var(--text-tertiary)", textAlign: "center" }}>Sent to bessora@sybellasystems.co.rw · We respond within 48 hours</p>
+                <p style={{ fontSize: 12, color: "var(--text-tertiary)", textAlign: "center" }}>Sent to contact@sybellasystems.co.rw · We respond within 48 hours</p>
               </form>
             )}
           </div>

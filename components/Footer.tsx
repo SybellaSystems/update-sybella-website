@@ -25,9 +25,7 @@ export default function Footer() {
               />
               <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(14px, 3vw, 18px)", letterSpacing: "-0.03em" }}>SYBELLA</span>
             </div>
-            <p style={{ color: "var(--text-secondary)", fontSize: "clamp(12px, 2vw, 14px)", lineHeight: 1.8, maxWidth: 280, marginBottom: "clamp(20px, 4vw, 28px)" }}>
-              Engineering Africa's digital future. Premium software systems for the continent's most ambitious builders.
-            </p>
+            <p>Premium custom ERP systems, SaaS platforms, and digital transformation solutions for Africa's fastest-growing companies. Sybella Systems — Engineering Africa's digital future.</p>
             <div style={{ display: "flex", gap: "clamp(8px, 2vw, 12px)" }}>
               {["LI", "TW", "GH"].map(s => (
                 <div key={s} style={{ width: "clamp(32px, 5vw, 36px)", height: "clamp(32px, 5vw, 36px)", border: "1px solid var(--border-bright)", borderRadius: 2, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "clamp(10px, 2vw, 12px)", color: "var(--text-secondary)", transition: "all 0.2s", cursor: "pointer", minHeight: "44px", minWidth: "44px" }}
@@ -52,7 +50,7 @@ export default function Footer() {
           ))}
         </div>
         <div style={{ padding: "clamp(16px, 3vw, 24px) 0", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "clamp(12px, 2vw, 16px)" }}>
-          <p style={{ fontSize: "clamp(11px, 1.5vw, 13px)", color: "var(--text-tertiary)" }}>© 2025 Sybella Systems Ltd. Kigali, Rwanda. All rights reserved.</p>
+          <p style={{ fontSize: "clamp(11px, 1.5vw, 13px)", color: "var(--text-tertiary)" }}> &copy; {new Date().getFullYear()} Sybella Systems Ltd. Rulindo, Rwanda. All rights reserved.</p>
           <div style={{ display: "flex", gap: "clamp(16px, 3vw, 24px)", flexWrap: "wrap" }}>
             {[["Privacy Policy", "/privacy"], ["Terms", "/terms"]].map(([l, h]) => (
               <Link key={l} href={h} style={{ fontSize: "clamp(11px, 1.5vw, 13px)", color: "var(--text-tertiary)", textDecoration: "none", minHeight: "44px", display: "flex", alignItems: "center" }}>{l}</Link>

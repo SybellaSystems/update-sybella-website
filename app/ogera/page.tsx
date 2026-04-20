@@ -2,6 +2,11 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
+export const metadata: Metadata = {
+  title: "Ogera — Africa's Student Employment Platform | Sybella Systems",
+  description: "Ogera connects Africa's university students with vetted job opportunities, internships, and career growth. Verified profiles, AI matching, and compliance-ready hiring for enterprises.",
+};
+
 function useIntersection(ref: React.RefObject<HTMLElement | null>) {
   useEffect(() => {
     const obs = new IntersectionObserver(entries => entries.forEach(e => e.target.classList.toggle("visible", e.isIntersecting)), { threshold: 0.1 });
@@ -65,10 +70,10 @@ export default function OgeraPage() {
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: "80px 32px", position: "relative" }}>
           <div className="tag tag-emerald" style={{ marginBottom: 28 }}>
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--emerald)", display: "inline-block" }} />
-            Launching June 14, 2026
+           Africa's #1 Student Employment Platform
           </div>
           <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(48px, 7vw, 96px)", fontWeight: 800, letterSpacing: "-0.05em", lineHeight: 0.95, marginBottom: 32, maxWidth: 900 }}>
-            Africa's<br />Student<br /><span style={{ color: "var(--emerald)" }}>Employment OS</span>
+            Africa's premier<br />Student Job & Internship <br /><span style={{ color: "var(--emerald)" }}>Platform.</span>
           </h1>
           <p style={{ fontSize: "clamp(17px, 1.5vw, 20px)", color: "var(--text-secondary)", maxWidth: 560, lineHeight: 1.75, marginBottom: 48 }}>
             Ogera doesn't just connect students to jobs. It builds careers. A complete platform for Africa's brightest young professionals to earn, grow, and be recognized.
