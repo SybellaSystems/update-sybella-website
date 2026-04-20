@@ -42,7 +42,7 @@ export default function Nav() {
             boxShadow: "0 4px 20px rgba(201,168,76,0.15)",
             flexShrink: 0
           }}>
-            <img
+            <Image
               src="/LOGO WITH NO BG.png"
               alt="Sybella Systems Logo"
               style={{

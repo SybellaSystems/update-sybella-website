@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import HomeClient from "@/components/HomeClient";
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Sybella Systems — Engineering Africa's Digital Future",

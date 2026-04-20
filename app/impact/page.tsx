@@ -5,7 +5,7 @@ import Link from "next/link";
 
 /* ---------------- Intersection Observer Hook ---------------- */
 
-function useIntersection(ref: React.RefObject<HTMLElement>) {
+function useIntersection(ref: React.RefObject<HTMLElement | null>) {
   useEffect(() => {
     if (!ref.current) return;
 
@@ -61,25 +61,16 @@ export default function ImpactPage() {
     setLoading(true);
     setError("");
 
-    try {
-      const response = await fetch("/api/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+   try {
+  const subject = encodeURIComponent("New Contact Form Submission");
+  const body = encodeURIComponent(
+    `Name: ${form.name}\nEmail: ${form.email}\nMessage: ${form.message}`
+  );
 
-      if (response.ok) {
-        setSent(true);
-        setForm({ name: "", email: "", company: "", message: "" });
-      } else {
-        setError("Failed to send message. Please try again.");
-      }
-    } catch {
-      setError("An error occurred. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  window.location.href = `mailto:contact@sybellasystems.co.rw?subject=${subject}&body=${body}`;
+} catch (error) {
+  console.error("Failed to open email client:", error);
+}
 
   const inputStyle = {
     padding: "16px 20px",
