@@ -80,8 +80,8 @@ export default function Nav() {
               display: "flex",
               alignItems: "center"
             }}
-              onMouseEnter={e => { if (pathname !== l.href) (e.target as HTMLElement).style.color = "var(--text-primary)"; }}
-              onMouseLeave={e => { if (pathname !== l.href) (e.target as HTMLElement).style.color = "var(--text-secondary)"; }}
+              onMouseEnter={e => { if (pathname !== l.href) (e.currentTarget as HTMLElement).style.color = "var(--text-primary)"; }}
+              onMouseLeave={e => { if (pathname !== l.href) (e.currentTarget as HTMLElement).style.color = "var(--text-secondary)"; }}
             >{l.label}</Link>
           ))}
         </nav>
