@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -43,7 +43,7 @@ function HeroOrb() {
         <path d="M273 242C273 245.6 270.4 248 266 248.6L256 250C253 250.4 251 252.1 251 254.6C251 257.3 253.2 259.4 256 259.4H268" stroke="#c9a84c" strokeWidth="2" strokeLinecap="round" />
         {/* Orbital dots */}
         {[0, 72, 144, 216, 288].map((a, i) => (
-          <circle key={i} cx={260 + 140 * Math.cos((a * Math.PI) / 180)} cy={260 + 140 * Math.sin((a * Math.PI) / 180)} r={i % 2 === 0 ? 3 : 2} fill={i % 2 === 0 ? "#c9a84c" : "#2dba85"} fillOpacity={0.6} />
+          <circle key={i} cx={260 + 140 * Math.cos((a * Math.PI) / 180)} cy={260 + 140 * Math.sin((a * Math.PI) / 180)} r={i % 2 === 0 ? 3 : 2} fill={i % 2 === 0 ? "#c9a84c" : "#2dba85"} fillOpacity={i % 2 === 0 ? 0.6 : 0.4} />
         ))}
         {[30, 90, 150, 210, 270, 330].map((a, i) => (
           <circle key={`d-${i}`} cx={260 + 190 * Math.cos((a * Math.PI) / 180)} cy={260 + 190 * Math.sin((a * Math.PI) / 180)} r={1.5} fill="#c9a84c" fillOpacity={0.3} />
@@ -72,7 +72,7 @@ function Stat({ n, label, suffix = "" }: { n: string; label: string; suffix?: st
 function ServiceCard({ icon, title, desc, accent }: { icon: string; title: string; desc: string; accent: string }) {
   return (
     <div className="card" style={{ padding: "clamp(24px, 5vw, 36px)", cursor: "default" }}>
-      <div style={{ width: 44, height: 44, borderRadius: 3, background: accent + "15", border: `1px solid ${accent}30`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>
+      <div style={{ width: 44, height: 44, borderRadius: 3, background: accent + "15", border: `1px solid ${accent}30`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 16 }}>
         <span style={{ fontSize: 20 }}>{icon}</span>
       </div>
       <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(16px, 3vw, 18px)", fontWeight: 700, marginBottom: 12, letterSpacing: "-0.02em" }}>{title}</h3>
@@ -87,13 +87,11 @@ export default function HomeClient() {
   const servicesRef = useRef<HTMLDivElement>(null);
   const ogeraRef = useRef<HTMLDivElement>(null);
   const trustRef = useRef<HTMLDivElement>(null);
-  const recentWorkRef = useRef<HTMLDivElement>(null);
 
   useIntersection(aboutRef as React.RefObject<HTMLElement>);
   useIntersection(servicesRef as React.RefObject<HTMLElement>);
   useIntersection(ogeraRef as React.RefObject<HTMLElement>);
   useIntersection(trustRef as React.RefObject<HTMLElement>);
-  useIntersection(recentWorkRef as React.RefObject<HTMLElement>);
 
   return (
     <div>
@@ -104,31 +102,36 @@ export default function HomeClient() {
         {/* Background globe pattern */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/globe.svg')", backgroundRepeat: "repeat", backgroundSize: "120px 120px", opacity: 0.15, pointerEvents: "none" }} />
         {/* Background gradient blob */}
-        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "clamp(400px, 80vw, 800px)", height: "clamp(400px, 80vw, 800px)", borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", bottom: 0, right: 0, width: "clamp(300px, 60vw, 600px)", height: "clamp(300px, 60vw, 600px)", borderRadius: "50%", background: "radial-gradient(circle, rgba(45,186,133,0.04) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", width: "clamp(400px, 80vw, 800px)", height: "clamp(400px, 80vw, 800px)", borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: 0, right: 0, width: "clamp(300px, 60vw, 600px)", height: "clamp(300px, 60vw, 600px)", borderRadius: "50%", background: "radial-gradient(circle, rgba(45,186,133,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
 
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "clamp(40px, 8vw, 80px) clamp(16px, 5vw, 32px)", width: "100%", display: "grid", gridTemplateColumns: "1fr", gap: "clamp(40px, 8vw, 80px)", alignItems: "center" }} className="hero-grid">
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "clamp(40px, 8vw, 80px) clamp(16px, 5vw, 32px)", width: "100%", display: "grid", gridTemplateColumns: "1fr", gap: "clamp(40px, 8vw, 60px)" }} className="hero-grid">
           {/* Left */}
           <div>
             <div className="tag" style={{ marginBottom: "clamp(20px, 4vw, 28px)" }}>
               <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--blue)", display: "inline-block" }} />
               Kigali, Rwanda · Est. 2025
             </div>
-            <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(36px, 8vw, 76px)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.0, marginBottom: "clamp(20px, 4vw, 28px)" }}>
-              Engineering<br />
-              <span className="gradient-text">Africa's</span><br />
-              Digital Future
-            </h1>
-            <p style={{ fontSize: "clamp(14px, 2.5vw, 18px)", color: "var(--text-secondary)", lineHeight: 1.8, maxWidth: 480, marginBottom: "clamp(32px, 6vw, 44px)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "clamp(16px, 4vw, 24px)", flexWrap: "wrap" }}>
+              <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(36px, 8vw, 76px)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.0 }}>
+                Engineering<br />
+                <span className="gradient-text">Africa's</span><br />
+                Digital Future
+              </h1>
+              <div style={{ width: "clamp(80px, 15vw, 140px)", height: "clamp(80px, 15vw, 140px)", borderRadius: 12, background: "var(--surface)", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <span style={{ fontSize: "clamp(40px, 10vw, 70px)", color: "var(--gold)", opacity: 0.8 }}>S</span>
+              </div>
+            </div>
+            <p style={{ fontSize: "clamp(14px, 2.5vw, 18px)", color: "var(--text-secondary)", lineHeight: 1.8, maxWidth: 480, marginBottom: "clamp(32px, 6vw, 44px)", marginTop: "clamp(16px, 3vw, 24px)" }}>
               We build the software infrastructure that powers Africa's most ambitious companies — from precision ERP systems to continent-defining SaaS platforms.
             </p>
-            <div style={{ display: "flex", gap: "clamp(12px, 3vw, 16px)", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: "clamp(12px, 3vw, 16px)", flexWrap: "wrap", marginBottom: "clamp(40px, 8vw, 60px)" }}>
               <Link href="/technology" className="btn-primary">Explore Our Work</Link>
               <Link href="/ogera" className="btn-ghost">Discover Ogera</Link>
             </div>
 
             {/* Stats row */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", marginTop: "clamp(40px, 8vw, 60px)", borderTop: "1px solid var(--border)" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", borderTop: "1px solid var(--border)" }}>
               <Stat n="6" suffix="+" label="Service Verticals" />
               <Stat n="∞" label="Scalable Architecture" />
               <Stat n="1" suffix="st" label="African SaaS Vision" />
@@ -155,13 +158,13 @@ export default function HomeClient() {
       >
         {/* Background patterns */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "url('/window.svg')", backgroundRepeat: "repeat", backgroundSize: "150px 150px", opacity: 0.02, pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "80%", height: 1, background: "linear-gradient(90deg, transparent, var(--gold), transparent)", opacity: 0.2, pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", width: "80%", height: 1, background: "linear-gradient(90deg, transparent, var(--gold), transparent)", opacity: 0.3 }} />
 
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           
           <div style={{ 
             display: "grid", 
-            gridTemplateColumns: "1fr auto auto", 
+            gridTemplateColumns: "1fr 1fr", 
             gap: "clamp(40px, 8vw, 80px)", 
             alignItems: "center" 
           }} className="vision-grid">
@@ -181,22 +184,23 @@ export default function HomeClient() {
                 <span style={{ color: "var(--text-secondary)", fontStyle: "italic", fontWeight: 400 }}>We engineer the systems that create them.</span>
               </h2>
               <p style={{ fontSize: "clamp(14px, 2.5vw, 17px)", color: "var(--text-secondary)", lineHeight: 1.85 }}>
-                Africa has 1.4 billion people and the world's fastest-growing youth population. We're building the digital infrastructure for that future — custom, precise, and uncompromising in quality.
+                Africa has 1.4 billion people and the world's fastest-growing youth population. We're building the digital infrastructure for that future — custom, precise, and uncompromising in excellence. Every system we build is engineered to handle complexity, scale beyond expectations, and serve as the foundation for lasting success.
               </p>
             </div>
 
-            {/* Right - Enlarged Image with Bottom Fade */}
+            {/* Right - Developer Image */}
             <div className="fade-up" style={{ 
               position: "relative", 
               display: "flex", 
-              justifyContent: "center" 
+              justifyContent: "center",
+              alignItems: "center"
             }}>
-              <div style={{ position: "relative", width: "100%", maxWidth: "900px", minHeight: "clamp(400px, 60vw, 720px)", borderRadius: "clamp(16px, 4vw, 28px)", overflow: "hidden" }}>
+              <div style={{ position: "relative", width: "100%", maxWidth: "500px", height: "clamp(400px, 70vw, 600px)", borderRadius: "clamp(16px, 4vw, 28px)", overflow: "hidden" }}>
                 <Image 
                   src="/developer-reviewing-code.png"
                   alt="Sybella Systems engineer reviewing code"
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 900px"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 500px"
                   style={{ 
                     objectFit: "cover",
                     filter: "drop-shadow(0 40px 90px rgba(0,0,0,0.35))"
@@ -204,17 +208,6 @@ export default function HomeClient() {
                   priority
                   quality={85}
                 />
-
-                {/* Bottom Fade to Hide Cut-off Legs */}
-                <div style={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: "clamp(120px, 20vw, 220px)",
-                  background: "linear-gradient(to top, var(--charcoal) 20%, transparent 100%)",
-                  pointerEvents: "none"
-                }} />
               </div>
             </div>
 
@@ -228,7 +221,7 @@ export default function HomeClient() {
               { n: "03", title: "Global Standard", text: "We hold our work to the same standards as the world's top software companies — because Africa's builders deserve nothing less." },
             ].map(v => (
               <div key={v.n} className="fade-up" style={{ padding: "clamp(32px, 6vw, 48px) clamp(24px, 6vw, 40px)", background: "var(--surface)", borderRight: "1px solid var(--border)" }}>
-                <div style={{ fontFamily: "var(--font-display)", fontSize: "clamp(9px, 1.5vw, 11px)", fontWeight: 700, color: "var(--blue)", letterSpacing: "0.2em", marginBottom: "clamp(16px, 3vw, 24px)" }}>{v.n}</div>
+                <div style={{ fontFamily: "var(--font-display)", fontSize: "clamp(9px, 1.5vw, 11px)", fontWeight: 700, color: "var(--blue)", letterSpacing: "0.2em", marginBottom: "clamp(16px, 3vw, 20px)" }}>{v.n}</div>
                 <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(18px, 4vw, 22px)", fontWeight: 700, marginBottom: "clamp(12px, 2vw, 16px)", letterSpacing: "-0.02em" }}>{v.title}</h3>
                 <p style={{ fontSize: "clamp(13px, 2vw, 14px)", color: "var(--text-secondary)", lineHeight: 1.85 }}>{v.text}</p>
               </div>
@@ -269,31 +262,6 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* ── RECENT WORK ── */}
-      <section 
-        ref={recentWorkRef}
-        style={{ 
-          padding: "clamp(60px, 10vw, 80px) clamp(16px, 5vw, 32px)", 
-          borderTop: "1px solid var(--border)", 
-          background: "var(--charcoal)", 
-          position: "relative", 
-          overflow: "hidden" 
-        }}
-      >
-        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
-          <div className="fade-up" style={{ marginBottom: "clamp(40px, 8vw, 64px)", textAlign: "center" }}>
-            <div className="tag" style={{ marginBottom: "clamp(16px, 2vw, 20px)" }}>Recent Work</div>
-            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(24px, 5vw, 48px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
-              Building Africa's Digital Future
-            </h2>
-          </div>
-
-          <div style={{ textAlign: "center", color: "var(--text-secondary)", fontSize: "clamp(15px, 2.5vw, 17px)" }}>
-            Projects coming soon...
-          </div>
-        </div>
-      </section>
-
       {/* ── TRUST INDICATORS ── */}
       <section ref={trustRef} style={{ padding: "clamp(60px, 10vw, 80px) clamp(16px, 5vw, 32px)", borderTop: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
         {/* Background window pattern */}
@@ -321,14 +289,14 @@ export default function HomeClient() {
           <div className="fade-up cta-grid" style={{ display: "grid", gridTemplateColumns: "1fr", gap: 2 }}>
             <div style={{ padding: "clamp(40px, 8vw, 60px) clamp(24px, 6vw, 56px)", background: "var(--surface)", border: "1px solid var(--border)" }}>
               <div className="tag" style={{ marginBottom: "clamp(16px, 3vw, 24px)" }}>For Businesses</div>
-              <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(22px, 5vw, 28px)", fontWeight: 700, letterSpacing: "-0.03em", marginBottom: "clamp(12px, 2vw, 16px)" }}>Ready to build something extraordinary?</h3>
-              <p style={{ fontSize: "clamp(13px, 2vw, 14px)", color: "var(--text-secondary)", marginBottom: "clamp(20px, 4vw, 32px)", lineHeight: 1.8 }}>Partner with Sybella Systems to engineer the digital infrastructure your business deserves.</p>
+              <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(22px, 5vw, 28px)", fontWeight: 700, letterSpacing: "-0.03em", marginBottom: "clamp(12px, 2vw, 16px)" }}>Ready to build the future of African business?</h3>
+              <p style={{ fontSize: "clamp(13px, 2vw, 14px)", color: "var(--text-secondary)", marginBottom: "clamp(20px, 4vw, 32px)", lineHeight: 1.8 }}>Partner with Sybella Systems to engineer the exact software your organization needs to scale.</p>
               <Link href="/impact#contact" className="btn-primary">Work With Us →</Link>
             </div>
             <div style={{ padding: "clamp(40px, 8vw, 60px) clamp(24px, 6vw, 56px)", background: "linear-gradient(135deg, rgba(45,186,133,0.08) 0%, var(--surface) 60%)", border: "1px solid rgba(45,186,133,0.2)" }}>
               <div className="tag tag-emerald" style={{ marginBottom: "clamp(16px, 3vw, 24px)" }}>For Students & Employers</div>
-              <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(22px, 5vw, 28px)", fontWeight: 700, letterSpacing: "-0.03em", marginBottom: "clamp(12px, 2vw, 16px)" }}>Africa's talent is ready. Are you?</h3>
-              <p style={{ fontSize: "clamp(13px, 2vw, 14px)", color: "var(--text-secondary)", marginBottom: "clamp(20px, 4vw, 32px)", lineHeight: 1.8 }}>Join Ogera's early access and be part of the continent's most ambitious student platform.</p>
+              <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(22px, 5vw, 28px)", fontWeight: 700, letterSpacing: "-0.03em", marginBottom: "clamp(12px, 2vw, 16px)" }}>Africa's talent deserves Africa's opportunity.</h3>
+              <p style={{ fontSize: "clamp(13px, 2vw, 14px)", color: "var(--text-secondary)", marginBottom: "clamp(20px, 4vw, 32px)", lineHeight: 1.8 }}>Join Ogera's early access and be part of the revolution in African talent and employment.</p>
               <Link href="/ogera#join" className="btn-primary" style={{ background: "var(--emerald)" }}>Join Ogera →</Link>
             </div>
           </div>
@@ -342,12 +310,14 @@ export default function HomeClient() {
         }
         @media (max-width: 768px) {
           .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+          .vision-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
           .values-grid { grid-template-columns: 1fr !important; }
           .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
           .cta-grid { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 480px) {
           .hero-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+          .vision-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
           .values-grid { grid-template-columns: 1fr !important; }
           .stats-grid { grid-template-columns: 1fr !important; }
           .cta-grid { grid-template-columns: 1fr !important; }
