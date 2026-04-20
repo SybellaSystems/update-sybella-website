@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -85,12 +85,10 @@ export default function HomeClient() {
   const heroRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const servicesRef = useRef<HTMLDivElement>(null);
-  const ogeraRef = useRef<HTMLDivElement>(null);
   const trustRef = useRef<HTMLDivElement>(null);
 
   useIntersection(aboutRef as React.RefObject<HTMLElement>);
   useIntersection(servicesRef as React.RefObject<HTMLElement>);
-  useIntersection(ogeraRef as React.RefObject<HTMLElement>);
   useIntersection(trustRef as React.RefObject<HTMLElement>);
 
   return (
@@ -183,7 +181,7 @@ export default function HomeClient() {
                 We don't follow trends.<br />
                 <span style={{ color: "var(--text-secondary)", fontStyle: "italic", fontWeight: 400 }}>We engineer the systems that create them.</span>
               </h2>
-              <p style={{ fontSize: "clamp(14px, 2.5vw, 17px)", color: "var(--text-secondary)", lineHeight: 1.85 }}>
+              <p style={{ fontSize: "clamp(14px, 2.5vw, 17px)", color: "var(--text-secondary)", lineHeight: 1.85, marginBottom: "clamp(20px, 4vw, 28px)" }}>
                 Africa has 1.4 billion people and the world's fastest-growing youth population. We're building the digital infrastructure for that future — custom, precise, and uncompromising in excellence. Every system we build is engineered to handle complexity, scale beyond expectations, and serve as the foundation for lasting success.
               </p>
             </div>
@@ -304,10 +302,25 @@ export default function HomeClient() {
       </section>
 
       <style>{`
+        /* Fade-up animation */
+        .fade-up {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+          will-change: opacity, transform;
+        }
+
+        .fade-up.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        /* Responsive grid layouts */
         @media (max-width: 1024px) {
           .hero-grid { grid-template-columns: 1fr !important; gap: 60px !important; }
           .vision-grid { grid-template-columns: 1fr !important; gap: 60px !important; }
         }
+
         @media (max-width: 768px) {
           .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
           .vision-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
@@ -315,6 +328,7 @@ export default function HomeClient() {
           .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
           .cta-grid { grid-template-columns: 1fr !important; }
         }
+
         @media (max-width: 480px) {
           .hero-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
           .vision-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
