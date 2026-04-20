@@ -63,7 +63,7 @@ export default function Nav() {
         </Link>
 
         {/* Desktop nav */}
-        <nav style={{ display: "flex", alignItems: "center", gap: 4 }} className="hidden md:flex">
+        <nav style={{ display: "flex", alignItems: "center", gap: 4 }} className="hidden lg:flex">
           {links.map(l => (
             <Link key={l.href} href={l.href} style={{
               padding: "8px 16px",
@@ -87,10 +87,10 @@ export default function Nav() {
         </nav>
 
         <div style={{ display: "flex", alignItems: "center", gap: "clamp(8px, 2vw, 12px)" }}>
-          <Link href="/impact#contact" className="btn-ghost hidden md:inline-flex" style={{ padding: "clamp(8px, 1.5vw, 10px) clamp(16px, 3vw, 20px)", fontSize: "clamp(11px, 1.5vw, 12px)" }}>Work With Us</Link>
-          <Link href="/ogera#join" className="btn-primary hidden md:inline-flex" style={{ padding: "clamp(8px, 1.5vw, 10px) clamp(16px, 3vw, 20px)", fontSize: "clamp(11px, 1.5vw, 12px)" }}>Join Ogera</Link>
+          <Link href="/impact#contact" className="btn-ghost hidden lg:inline-flex" style={{ padding: "clamp(8px, 1.5vw, 10px) clamp(16px, 3vw, 20px)", fontSize: "clamp(11px, 1.5vw, 12px)" }}>Work With Us</Link>
+          <Link href="/ogera#join" className="btn-primary hidden lg:inline-flex" style={{ padding: "clamp(8px, 1.5vw, 10px) clamp(16px, 3vw, 20px)", fontSize: "clamp(11px, 1.5vw, 12px)" }}>Join Ogera</Link>
           {/* Mobile menu toggle */}
-          <button onClick={() => setOpen(!open)} style={{ display: "flex", flexDirection: "column", gap: 5, padding: 8, background: "none", border: "none", cursor: "pointer", minHeight: "44px", minWidth: "44px", alignItems: "center", justifyContent: "center" }} className="md:hidden">
+          <button onClick={() => setOpen(!open)} style={{ display: "flex", flexDirection: "column", gap: 5, padding: 8, background: "none", border: "none", cursor: "pointer", minHeight: "44px", minWidth: "44px", alignItems: "center", justifyContent: "center" }} className="lg:hidden">
             <span style={{ display: "block", width: 22, height: 1.5, background: "var(--text-primary)", transition: "all 0.3s", transform: open ? "rotate(45deg) translateY(6.5px)" : "none" }} />
             <span style={{ display: "block", width: 22, height: 1.5, background: "var(--text-primary)", transition: "all 0.3s", opacity: open ? 0 : 1 }} />
             <span style={{ display: "block", width: 22, height: 1.5, background: "var(--text-primary)", transition: "all 0.3s", transform: open ? "rotate(-45deg) translateY(-6.5px)" : "none" }} />

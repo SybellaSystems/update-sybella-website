@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: { default: "Sybella Systems — Africa's Premium Software Company", template: "%s | Sybella Systems" },
   description: "Sybella Systems builds world-class software, custom ERP systems, and digital platforms across Africa. Creators of Ogera — the continent's premier student employment platform.",
-  keywords: ["cloud solutions Rwanda", "custom ERP developers Lagos", "premium SaaS development Nairobi", "software company Africa", "Ogera student jobs Africa", "Sybella Systems Kigali"],
+  keywords: ["cloud solutions Rwanda", "custom ERP developers Lagos", "premium SaaS development Nairobi", "software company Africa", "Ogera student jobs Africa", "Sybella Systems Rulindo"],
   authors: [{ name: "Sybella Systems", url: "https://sybellasystems.co.rw" }],
   creator: "Sybella Systems",
   publisher: "Sybella Systems",

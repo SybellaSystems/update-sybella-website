@@ -18,13 +18,41 @@ export default function ImpactPage() {
   useIntersection(s4 as React.RefObject<HTMLElement>);
   const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const handle = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setForm(f => ({ ...f, [e.target.name]: e.target.value }));
-  const submit = (ev: React.FormEvent) => {
+  
+  const submit = async (ev: React.FormEvent) => {
     ev.preventDefault();
-    const body = `Project Inquiry\n\nFrom: ${form.name} (${form.company})\nEmail: ${form.email}\n\nMessage:\n${form.message}`;
-    window.location.href = `mailto:bessora@sybellasystems.co.rw?subject=Project Inquiry from ${encodeURIComponent(form.company || form.name)}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          company: form.company,
+          message: form.message,
+        }),
+      });
+
+      if (response.ok) {
+        setSent(true);
+        setForm({ name: "", email: "", company: "", message: "" });
+      } else {
+        setError("Failed to send message. Please try again.");
+      }
+    } catch (err) {
+      setError("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
+
   const inputStyle = { padding: "16px 20px", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 3, color: "var(--text-primary)", fontSize: 15, fontFamily: "var(--font-body)", width: "100%", transition: "border-color 0.2s", outline: "none" };
 
   return (
@@ -54,7 +82,7 @@ export default function ImpactPage() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "start" }} className="hero-grid">
             <div>
               <div className="fade-up tag" style={{ marginBottom: 24 }}>Our Story</div>
-              <h2 className="fade-up" style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 3vw, 44px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 28 }}>Founded in Kigali.<br /><span style={{ color: "var(--blue-bright)" }}>Built for a continent.</span></h2>
+              <h2 className="fade-up" style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 3vw, 44px)", fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 28 }}>Founded in Rulindo.<br /><span style={{ color: "var(--blue-bright)" }}>Built for a continent.</span></h2>
               <p className="fade-up" style={{ fontSize: 15, color: "var(--text-secondary)", lineHeight: 1.9, marginBottom: 24 }}>
                 Sybella Systems was incorporated in Rwanda in 2025 with a dual-founder structure designed for long-term governance and bold vision. From day one, we committed to a simple standard: every product we ship must be globally competitive.
               </p>
@@ -67,7 +95,7 @@ export default function ImpactPage() {
                   <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em" }}>Founded</div>
                 </div>
                 <div>
-                  <div style={{ fontFamily: "var(--font-display)", fontSize: 32, fontWeight: 800, color: "var(--blue-bright)" }}>Kigali</div>
+                  <div style={{ fontFamily: "var(--font-display)", fontSize: 32, fontWeight: 800, color: "var(--blue-bright)" }}>Rulindo</div>
                   <div style={{ fontSize: 12, color: "var(--text-tertiary)", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.1em" }}>Headquarters</div>
                 </div>
                 <div>
@@ -76,26 +104,19 @@ export default function ImpactPage() {
                 </div>
               </div>
             </div>
-            {/* Timeline */}
+            {/* Milestones */}
             <div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
                 {[
-                  { year: "2025 Q4", title: "Sybella Systems Incorporated", desc: "Company registered in Kigali, Rwanda. Dual-founder structure established with Class F shares and full governance framework.", active: true },
-                  { year: "2026 Q1", title: "Infrastructure Built", desc: "Company Intelligence OS deployed. Full service vertical suite (SyCore™ through SyFlow™) developed and documented.", active: true },
-                  { year: "2026 Q2", title: "Ogera Beta Launch", desc: "14 June 2026 — Ogera opens to early access users across Rwanda and selected African markets.", active: false },
-                  { year: "2026 Q3", title: "First Enterprise Clients", desc: "Target: 3 enterprise software contracts delivered. Sybella's reputation for quality established.", active: false },
-                  { year: "2027+", title: "Continental Scale", desc: "Presence across 5 African markets. Ogera at 50,000+ users. Sybella recognized as Africa's benchmark software company.", active: false },
-                ].map((t, i) => (
-                  <div key={t.year} className="fade-up" style={{ display: "flex", gap: 24, paddingBottom: i < 4 ? 32 : 0 }}>
-                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                      <div style={{ width: 12, height: 12, borderRadius: "50%", background: t.active ? "var(--blue)" : "var(--border-bright)", border: t.active ? "none" : "1px solid var(--border-bright)", flexShrink: 0, marginTop: 4 }} />
-                      {i < 4 && <div style={{ width: 1, flex: 1, background: "var(--border)", marginTop: 8 }} />}
-                    </div>
-                    <div style={{ paddingBottom: i < 4 ? 0 : 0 }}>
-                      <div style={{ fontFamily: "var(--font-display)", fontSize: 11, fontWeight: 700, color: t.active ? "var(--blue)" : "var(--text-tertiary)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 6 }}>{t.year}</div>
-                      <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 16, marginBottom: 8 }}>{t.title}</div>
-                      <div style={{ fontSize: 13, color: "var(--text-secondary)", lineHeight: 1.75 }}>{t.desc}</div>
-                    </div>
+                  { number: "2", label: "Co-founders", icon: "◎" },
+                  { number: "6", label: "Service Verticals", icon: "◈" },
+                  { number: "1", label: "Flagship Product", icon: "⬡" },
+                  { number: "5", label: "Markets Target", icon: "▲" },
+                ].map(m => (
+                  <div key={m.label} className="fade-up card" style={{ padding: 32, textAlign: "center" }}>
+                    <div style={{ fontSize: 24, marginBottom: 12, color: "var(--blue)" }}>{m.icon}</div>
+                    <div style={{ fontFamily: "var(--font-display)", fontSize: 36, fontWeight: 800, color: "var(--blue-bright)", marginBottom: 8 }}>{m.number}</div>
+                    <div style={{ fontSize: 12, color: "var(--text-secondary)", fontWeight: 600 }}>{m.label}</div>
                   </div>
                 ))}
               </div>
@@ -142,7 +163,7 @@ export default function ImpactPage() {
             <div className="fade-up" style={{ display: "flex", flexDirection: "column", gap: 20 }}>
               {[
                 { icon: "◎", label: "General Inquiries", value: "bessora@sybellasystems.co.rw" },
-                { icon: "◈", label: "Location", value: "Kigali, Rwanda" },
+                { icon: "◈", label: "Location", value: "Rulindo, Rwanda" },
                 { icon: "⬡", label: "Founded", value: "2025 · Private Limited Company" },
               ].map(c => (
                 <div key={c.label} style={{ display: "flex", gap: 16, alignItems: "flex-start" }}>
@@ -160,7 +181,8 @@ export default function ImpactPage() {
               <div style={{ padding: 60, background: "var(--blue-dim)", border: "1px solid rgba(59,130,246,0.25)", borderRadius: 4, textAlign: "center" }}>
                 <div style={{ fontSize: 40, marginBottom: 16 }}>◎</div>
                 <div style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 700, color: "var(--blue-bright)", marginBottom: 8 }}>Message received.</div>
-                <div style={{ fontSize: 14, color: "var(--text-secondary)" }}>We'll respond within 24–48 hours.</div>
+                <div style={{ fontSize: 14, color: "var(--text-secondary)", marginBottom: 24 }}>We'll respond within 24–48 hours.</div>
+                <button onClick={() => setSent(false)} style={{ padding: "10px 20px", background: "var(--blue)", color: "#fff", border: "none", borderRadius: 2, cursor: "pointer", fontSize: 13, fontWeight: 600 }}>Send another message</button>
               </div>
             ) : (
               <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
@@ -177,7 +199,10 @@ export default function ImpactPage() {
                 <textarea name="message" required placeholder="Describe what you're building and how we can help..." rows={6} value={form.message} onChange={handle} style={{ ...inputStyle, resize: "vertical" }}
                   onFocus={e => e.target.style.borderColor = "var(--gold)"}
                   onBlur={e => e.target.style.borderColor = "var(--border)"} />
-                <button type="submit" className="btn-primary" style={{ justifyContent: "center", padding: "18px 32px", fontSize: 14 }}>Send Message →</button>
+                {error && <div style={{ fontSize: 13, color: "var(--red)", padding: "12px 16px", background: "rgba(239,68,68,0.1)", borderRadius: 2 }}>{error}</div>}
+                <button type="submit" className="btn-primary" style={{ justifyContent: "center", padding: "18px 32px", fontSize: 14 }} disabled={loading}>
+                  {loading ? "Sending..." : "Send Message →"}
+                </button>
                 <p style={{ fontSize: 12, color: "var(--text-tertiary)", textAlign: "center" }}>Sent to bessora@sybellasystems.co.rw · We respond within 48 hours</p>
               </form>
             )}
