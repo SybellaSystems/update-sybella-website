@@ -362,7 +362,7 @@ export default function HomeClient() {
 
           <div style={{ textAlign: "center", color: "var(--text-secondary)" }}>
   Projects coming soon... </div>
-            >
+            
               {projects.map((project, index) => (
                 <div
                   key={index}
