@@ -39,7 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           "url": "https://sybellasystems.co.rw",
           "logo": "https://sybellasystems.co.rw/logo.svg",
           "description": "Africa's premier software engineering company",
-          "address": { "@type": "PostalAddress", "addressLocality": "Kigali", "addressCountry": "RW" },
+          "address": { "@type": "PostalAddress", "addressLocality": "Rulindo", "addressCountry": "RW" },
           "sameAs": ["https://linkedin.com/company/sybella-systems", "https://twitter.com/sybellasystems"],
         }) }} />
       </head>

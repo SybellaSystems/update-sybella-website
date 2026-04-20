@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 
 const cols = [
@@ -15,11 +16,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "clamp(8px, 2vw, 12px)", marginBottom: "clamp(12px, 2vw, 20px)" }}>
-              <svg width="clamp(24px, 4vw, 32px)" height="clamp(24px, 4vw, 32px)" viewBox="0 0 32 32" fill="none">
-                <rect width="32" height="32" rx="2" fill="#c9a84c" />
-                <path d="M10 22C10 19.8 11.6 18.4 14 18.1L21 17C22.2 16.8 23 15.9 23 14.7C23 13.2 21.8 12 20 12H12" stroke="#080808" strokeWidth="2.2" strokeLinecap="round" />
-                <path d="M22 10C22 12.2 20.4 13.6 18 13.9L11 15C9.8 15.2 9 16.1 9 17.3C9 18.8 10.2 20 12 20H20" stroke="#080808" strokeWidth="2.2" strokeLinecap="round" />
-              </svg>
+              <Image
+                src="/LOGO WITH NO BG.png"
+                alt="Sybella Systems Logo"
+                width={32}
+                height={32}
+                style={{ width: "clamp(24px, 4vw, 32px)", height: "clamp(24px, 4vw, 32px)" }}
+              />
               <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "clamp(14px, 3vw, 18px)", letterSpacing: "-0.03em" }}>SYBELLA</span>
             </div>
             <p style={{ color: "var(--text-secondary)", fontSize: "clamp(12px, 2vw, 14px)", lineHeight: 1.8, maxWidth: 280, marginBottom: "clamp(20px, 4vw, 28px)" }}>
