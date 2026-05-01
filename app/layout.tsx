@@ -91,7 +91,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           rel="stylesheet"
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <Nav />
         <main>{children}</main>
         <Footer />
@@ -152,7 +152,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   "@type": "ListItem",
                   "position": 3,
                   "name": "Ogera",
-                  "item": "https://sybellasystems.co.rw/ogera"
+                  "item": "https://ogera.sybellasystems.co.rw/"
                 },
                 {
                   "@type": "ListItem",
